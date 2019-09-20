@@ -4,79 +4,82 @@
 
     <div id="content">
       <div class="section" id="sec1">
-          <div class="title">
-              <h4 class="f66 poA">01</h4>
-              <h3 class="f30">專題演講者</h3>
-              <h2 class="f66">SPEAKERS</h2>
-          </div>
-          <div id="person_slider">
-              <div class="slider">
-                  <div class="img_wrapper">
-                      <img src="img/person.jpg" alt="">
-                      <h6 class="f_white f30 poA">
-                          簡士評
-                          <font class="f18">MAYO創辦人暨執行長</font>
-                      </h6>
-                      <h5 class="f18 poA">專題演講一</h5>
-                  </div>
-                  <h4 class="f_grey f18">
-                      #新科技帶來新企業，未來人才你挑對了嗎?
-                  </h4>
-              </div>
-              <div class="slider">
-                  <div class="img_wrapper">
-                      <img src="img/person.jpg" alt="">
-                      <h6 class="f_white f30 poA">
-                          簡士評
-                          <font class="f18">MAYO創辦人暨執行長</font>
-                      </h6>
-                      <h5 class="f18 poA">專題演講一</h5>
-                  </div>
-                  <h4 class="f_grey f18">
-                          #從隊員變教練──迎向數位轉型，人資要比老闆清楚的那件事
-                  </h4>
-              </div>
-              <div class="slider">
-                  <div class="img_wrapper">
-                      <img src="img/person.jpg" alt="">
-                      <h6 class="f_white f30 poA">
-                          簡士評
-                          <font class="f18">MAYO創辦人暨執行長</font>
-                      </h6>
-                      <h5 class="f18 poA">專題演講一</h5>
-                  </div>
-                  <h4 class="f_grey f18">
-                      #智慧浪潮來襲，HR如何領軍站上浪頭
-                  </h4>
-              </div>
-              <div class="slider">
-                  <div class="img_wrapper">
-                      <img src="img/person.jpg" alt="">
-                      <h6 class="f_white f30 poA">
-                          簡士評
-                          <font class="f18">MAYO創辦人暨執行長</font>
-                      </h6>
-                      <h5 class="f18 poA">專題演講一</h5>
-                  </div>
-                  <h4 class="f_grey f18">
-                      #智慧浪潮來襲，HR如何領軍站上浪頭
-                  </h4>
-              </div>
-              <div class="slider">
-                  <div class="img_wrapper">
-                      <img src="img/person.jpg" alt="">
-                      <h6 class="f_white f30 poA">
-                          簡士評
-                          <font class="f18">MAYO創辦人暨執行長</font>
-                      </h6>
-                      <h5 class="f18 poA">專題演講一</h5>
-                  </div>
-                  <h4 class="f_grey f18">
-                      #智慧浪潮來襲，HR如何領軍站上浪頭
-                  </h4>
-              </div>
-          </div>
-          
+            <div class="title">
+                <h4 class="f66 poA">01</h4>
+                <h3 class="f30">專題演講者</h3>
+                <h2 class="f66">SPEAKERS</h2>
+            </div>
+            <!-- <no-ssr placeholder="loading..."> -->
+                <div v-swiper:mySwiper="swiperOption" id="person_slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="img_wrapper">
+                                <img src="@/assets/img/person.jpg" alt="">
+                                <h6 class="f_white f30 poA">
+                                    簡士評
+                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                </h6>
+                                <h5 class="f18 poA">專題演講一</h5>
+                            </div>
+                            <h4 class="f_grey f18">
+                                #新科技帶來新企業，未來人才你挑對了嗎?
+                            </h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img_wrapper">
+                                <img src="@/assets/img/person.jpg" alt="">
+                                <h6 class="f_white f30 poA">
+                                    簡士評
+                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                </h6>
+                                <h5 class="f18 poA">專題演講一</h5>
+                            </div>
+                            <h4 class="f_grey f18">
+                                    #從隊員變教練──迎向數位轉型，人資要比老闆清楚的那件事
+                            </h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img_wrapper">
+                                <img src="@/assets/img/person.jpg" alt="">
+                                <h6 class="f_white f30 poA">
+                                    簡士評
+                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                </h6>
+                                <h5 class="f18 poA">專題演講一</h5>
+                            </div>
+                            <h4 class="f_grey f18">
+                                #智慧浪潮來襲，HR如何領軍站上浪頭
+                            </h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img_wrapper">
+                                <img src="@/assets/img/person.jpg" alt="">
+                                <h6 class="f_white f30 poA">
+                                    簡士評
+                                    <font class="f18">MAYO創辦人暨執行長</font> 
+                                </h6>
+                                <h5 class="f18 poA">專題演講一</h5>
+                            </div>
+                            <h4 class="f_grey f18">
+                                #智慧浪潮來襲，HR如何領軍站上浪頭
+                            </h4>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="img_wrapper">
+                                <img src="@/assets/img/person.jpg" alt="">
+                                <h6 class="f_white f30 poA">
+                                    簡士評
+                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                </h6>
+                                <h5 class="f18 poA">專題演講一</h5>
+                            </div>
+                            <h4 class="f_grey f18">
+                                #智慧浪潮來襲，HR如何領軍站上浪頭
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            <!--</no-ssr> -->
 
       </div>
       
@@ -219,12 +222,53 @@
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
-
 export default {
-  components: {
-    Header,
-    Footer,
-  }
+    data () {
+      return {
+        carouselCurrent: 0,
+        swiperOption: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+             breakpoints: { 
+                768: { 
+                    slidesPerView: 2,
+                },
+                414: {
+                    slidesPerView: 1,
+                }
+            }
+        },
+      }
+    },
+    computed: {
+        screenUnder600() {
+            if(typeof window !== 'undefined') {
+                console.log(window.innerWidth < 600)
+                return window.innerWidth < 600;
+            } 
+        }
+    },
+    components: {
+        Header,
+        Footer,
+    },
+    mounted() {
+        this.$nextTick( ()=> {
+          window.addEventListener("resize", this.deviceDetect);
+        })
+    },
+    methods: {
+        deviceDetect() {
+            if(window.innerWidth < 600) {
+                this.swiperOption.slidesPerView = 1;
+            } else {
+                this.swiperOption.slidesPerView = 3;
+
+            }
+            console.log(this.swiperOption.slidesPerView)
+        }
+    },
+
 }
 </script>
 
@@ -345,7 +389,7 @@ img {
     border-bottom: 1px solid #9b9b9b;
 }
 
-.slider {
+.swiper-slide {
     position: relative;
 }
 
@@ -374,7 +418,7 @@ img {
 }
 
 
-.slider h4{
+.swiper-slide h4{
     padding: 0 10px;
 }
 
@@ -484,7 +528,7 @@ input, select {
     line-height: 60px;
     background-color: #f1f1f1;
     border: 1px solid #9d9d9d;
-    width: calc(100% - 105px);
+    width: calc(100% - 107px);
     padding: 0 10px;
     border-radius: 3px;
 }

@@ -23,11 +23,16 @@ export default {
   ** Global CSS
   */
   css: [
+    'swiper/dist/css/swiper.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+ plugins: [
+    {
+      src: '~/plugins/vue-swiper.js',
+      ssr: false
+    },
   ],
   /*
   ** Nuxt.js dev-modules
@@ -46,7 +51,16 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
-    }
+    extend(config, { isDev }) {
+      if (isDev && process.client) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    },
+ 
   }
 }
