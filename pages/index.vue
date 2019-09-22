@@ -167,34 +167,46 @@
               <h3 class="f30">填寫報名</h3>
               <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
           </div>
-          <form action="" class="f18">
+          <form @submit="onSubmit" action="https://vuejs.org/" method="post" class="f18" >
               <div class="tr t_right f_red">
                   *為必填項目
               </div>
               <div class="tr">
                   <p>姓名</p>
-                  <input type="text" name="name">
+                  <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
               </div>
               <div class="tr">
                   <p>電話</p>
-                  <input type="number" name="phone">
+                  <input type="number" name="phone" maxlength="10" v-model="formObj.phone" required="required">
               </div>
               <div class="tr">
                   <p>e-mail</p>
-                  <input type="email" name="mail">
+                  <input type="email" name="email" v-model="formObj.email" required="required">
               </div>
               <div class="tr">
                   <p>場次</p>
-                  <select name="" id="event">
+                  <select name="" id="event" v-model="formObj.session" required="required">
                       <option value="台中">台中</option>
                       <option value="彰化">彰化</option>
                   </select>
               </div>
+              <div class="tr">
+                  <p>主辦單位</p>
+                  <input type="text" name="organizer" v-model="formObj.organizer" required="required">
+              </div>
+              <div class="tr">
+                  <p>職稱</p>
+                  <input type="text" name="jobTitle" v-model="formObj.jobTitle" required="required">
+              </div>
+              <div class="tr">
+                  <p class="optional">身分證字號</p>
+                  <input type="text" name="id" v-model="formObj.id">
+              </div>
               <div class="tr t_left">
-                  <input type="checkbox" name="" id="agreement">
+                  <input type="checkbox" name="" id="agreement" v-model="agreement">
                   <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
               </div>
-              <button type="submit">送出</button>
+              <button class="f18 submit" type="submit">送出</button>
           </form>
       </div>
 
@@ -210,10 +222,8 @@
           </div>
           <h6 class="f18"><br>臺中市北區館前路一號B1</h6>
       </div>
-
         
     </div>
-    
     <Footer />
   </div>
 </template>
@@ -238,35 +248,59 @@ export default {
                 }
             }
         },
+        formObj: {
+            name:'',
+            phone:'',
+            email:'',
+            session:'',
+            organizer:'',
+            jobTitle:'',
+            id: '',
+        },
+        agreement: false, 
       }
     },
     computed: {
-        screenUnder600() {
-            if(typeof window !== 'undefined') {
-                console.log(window.innerWidth < 600)
-                return window.innerWidth < 600;
-            } 
+        validatePhone() {
+            var mobileReg = /^(09)[0-9]{8}$/;
+            return (this.formObj.phone.match(mobileReg)) ? true : false
+        },
+        validateMail() {
+            var mailRegex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+            return (this.formObj.email.match(mailRegex)) ? true : false
+        },
+        validateId() {
+            var idRegex=/^[a-z](1|2)\d{8}$/i; 
+            return (this.formObj.id.match(idRegex)) ? true : false
         }
+        
     },
     components: {
         Header,
         Footer,
     },
     mounted() {
-        this.$nextTick( ()=> {
-          window.addEventListener("resize", this.deviceDetect);
-        })
+       
     },
     methods: {
         deviceDetect() {
-            if(window.innerWidth < 600) {
-                this.swiperOption.slidesPerView = 1;
-            } else {
-                this.swiperOption.slidesPerView = 3;
+           
+        },
+        onSubmit(e) {
+            let formData = JSON.stringify(this.formObj);
+            console.log(formData);
+            console.log(this.validatePhone, this.validateMail, this.validateId);
+            // this.$http.post('', formData).then(function (res) {
+            //     if (res.status === 2000) {
 
-            }
-            console.log(this.swiperOption.slidesPerView)
+            //     }
+            //     else{
+
+            //     }
+            // })
+            e.preventDefault();
         }
+        
     },
 
 }
@@ -274,6 +308,12 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700|Oswald:500&display=swap');
+
+* {
+    user-select: none; 
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
+    outline:none 
+}
 
 body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -358,25 +398,21 @@ img {
     text-align: right;
     line-height: 1;
     margin-bottom: 50px;
+    h2{
+        font-family: 'Oswald', sans-serif;
+        position: relative;
+    }
+
+    h4{
+        font-family: 'Oswald', sans-serif;
+        background: -webkit-linear-gradient(#a6c0fe, #f68084);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        top: -8px;
+        left: -10px;
+    }
 }
 
-.title h2{
-    font-family: 'Oswald', sans-serif;
-}
-
-.title h4{
-    font-family: 'Oswald', sans-serif;
-    background: -webkit-linear-gradient(#a6c0fe, #f68084);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    top: -8px;
-    left: -10px;
-}
-
-
-.title h2 {
-    position: relative;
-}
 
 .section{
     text-align: center;
@@ -391,35 +427,28 @@ img {
 
 .swiper-slide {
     position: relative;
+    h4{
+        padding: 0 10px;
+    }
 }
 
 .img_wrapper {
     position: relative;
     margin-bottom: 30px;
-}
-
-.img_wrapper *{
-    color: #fff;
-}
-
-
-.img_wrapper img {
-    width: 100%;
-}
-
-.img_wrapper h6{
-    bottom: 30%;
-    width: 100%;
-    transform: translate(0 , -50%);
-}
-
-.img_wrapper h6 font{
-    display: block;
-}
-
-
-.swiper-slide h4{
-    padding: 0 10px;
+    *{
+        color: #fff;
+    }  
+    img {
+        width: 100%;
+    }
+    h6{
+        bottom: 30%;
+        width: 100%;
+        transform: translate(0 , -50%);
+        font{
+            display: block;
+        }
+    }
 }
 
 #sec2, #sec3 {
@@ -440,16 +469,13 @@ img {
     line-height: 1.2;
     vertical-align: top;
     margin-top: 35px;
-}
-
-.location h5{
-    display: block;
-}
-
-.location h6{
-    display: block;
-    font-family: 'Oswald', sans-serif;
-
+     h5{
+        display: block;
+    }
+     h6{
+        display: block;
+        font-family: 'Oswald', sans-serif;
+    }
 }
 
 .eventsList {
@@ -457,10 +483,11 @@ img {
     width: calc(100% - 245px);
     margin-bottom: 50px;
     margin-left: 85px;
+    *{
+        vertical-align: top;
+    }
 }
-.eventsList *{
-    vertical-align: top;
-}
+
 .event {
     width: 100%;
     padding: 35px 40px;
@@ -482,29 +509,30 @@ img {
     border-radius:50%;
     background-color: #003b8f;
     margin: 9px 30px;
+    &:after {
+        content: '';
+        height: calc(100% - 20px);
+        position: absolute;
+        width: 1px;
+        top: 65px;
+        left: 217px;
+        border-right: 1px dashed #9b9b9b;
+    }
+
 }
 
-.dot:after {
-    content: '';
-    height: calc(100% - 20px);
-    position: absolute;
-    width: 1px;
-    top: 65px;
-    left: 217px;
-    border-right: 1px dashed #9b9b9b;
-}
 
 .subject {
     display: inline-block;
     width: calc(100% - 225px);
     text-align: left;
     line-height: 1.25;
+    span{
+        padding-top: 10px;
+        display: block;
+    }
 }
 
-.subject span{
-    padding-top: 10px;
-    display: block;
-}
 
 form {
     margin-top: -80px;
@@ -515,27 +543,41 @@ form {
     background-color: #ffffff;
     max-width: 800px;
     padding: 40px 40px 60px;
+    a{
+        color: #0042a0;
+        border-bottom: 1px solid #0042a0;
+        text-decoration: none;
+    }
+    .submit {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+
+        background-color: #0042a0;
+        border-radius: 3px;
+        color: #fff;
+        width: 100%;
+        max-width: 550px;
+        margin: 10px;
+
+    }
 }
 
-form a{
-    color: #0042a0;
-    border-bottom: 1px solid #0042a0;
-    text-decoration: none;
-}
 
 input, select {
     -webkit-appearance: none;
-    line-height: 60px;
+    line-height: 52px;
     background-color: #f1f1f1;
     border: 1px solid #9d9d9d;
     width: calc(100% - 107px);
     padding: 0 10px;
     border-radius: 3px;
+    font-size: 18px;
+    &:focus {
+        border: 1px solid #003b8f;
+    }
 }
 
-input:focus, select:focus {
-    border: 1px solid #003b8f;
-}
 
 input[type='checkbox'] {
     width: 26px;
@@ -554,28 +596,27 @@ input[type='checkbox'] + label {
     margin: 15px auto;
     display: inline-block;
     width: 100%;
+    p{
+        width: 100px;
+        display: inline-block;
+        text-align: left;
+        &:before {
+            content: '*';
+            color: #e43434;
+           
+        }
+        &.optional{
+            &:before {
+                display: none;
+            }
+            
+        }
+    }
+   
 }
 
-.tr p{
-    width: 100px;
-    display: inline-block;
-    text-align: left;
-}
 
-.tr p:before {
-    content: '*';
-    color: #e43434;
-}
 
-button {
-    height: 60px;
-    background-color: #0042a0;
-    border-radius: 3px;
-    color: #fff;
-    width: 100%;
-    max-width: 550px;
-
-}
 
 .google_map {
     height: 40vw;
