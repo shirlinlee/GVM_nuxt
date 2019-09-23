@@ -13,10 +13,12 @@
 #top {
   width: 100%;
   text-align: center;
+  position: fixed;
   li{
     display: inline-block;
     line-height: 90px;
     padding: 0 15px;
+    color: #fff;
   }
 }
 

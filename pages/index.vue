@@ -3,6 +3,12 @@
     <Header />
 
     <div id="content">
+        <div id="banner">
+            <img src="@/assets/img/kvbg.jpg" alt="">
+            <h1 class="poA">
+                <img src="@/assets/img/hl.png" alt="">
+            </h1>
+        </div>
       <div class="section" id="sec1">
             <div class="title">
                 <h4 class="f66 poA">01</h4>
@@ -14,69 +20,47 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="img_wrapper">
-                                <img src="@/assets/img/person.jpg" alt="">
+                                <img src="@/assets/img/speaker-1.jpg" alt="">
                                 <h6 class="f_white f30 poA">
                                     簡士評
                                     <font class="f18">MAYO創辦人暨執行長</font>
                                 </h6>
-                                <h5 class="f18 poA">專題演講一</h5>
+                                
                             </div>
                             <h4 class="f_grey f18">
+                                <h5 class="f18 poA">專題演講一</h5>
                                 #新科技帶來新企業，未來人才你挑對了嗎?
                             </h4>
                         </div>
                         <div class="swiper-slide">
                             <div class="img_wrapper">
-                                <img src="@/assets/img/person.jpg" alt="">
+                                <img src="@/assets/img/speaker-2.jpg" alt="">
                                 <h6 class="f_white f30 poA">
-                                    簡士評
-                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                    謝鄭忠
+                                    <font class="f18">宇瞻科技行政服務處處長</font>
                                 </h6>
-                                <h5 class="f18 poA">專題演講一</h5>
+                                
                             </div>
                             <h4 class="f_grey f18">
+                                <h5 class="f18 poA">專題演講一</h5>
                                     #從隊員變教練──迎向數位轉型，人資要比老闆清楚的那件事
                             </h4>
                         </div>
                         <div class="swiper-slide">
                             <div class="img_wrapper">
-                                <img src="@/assets/img/person.jpg" alt="">
+                                <img src="@/assets/img/speaker-3.jpg" alt="">
                                 <h6 class="f_white f30 poA">
-                                    簡士評
-                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                    孫弘岳
+                                    <font class="f18">國立臺灣師範大學科技應用與<br>人力資源發展學系助理教授</font>
                                 </h6>
-                                <h5 class="f18 poA">專題演講一</h5>
+                                
                             </div>
                             <h4 class="f_grey f18">
+                                <h5 class="f18 poA">專題演講一</h5>
                                 #智慧浪潮來襲，HR如何領軍站上浪頭
                             </h4>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img_wrapper">
-                                <img src="@/assets/img/person.jpg" alt="">
-                                <h6 class="f_white f30 poA">
-                                    簡士評
-                                    <font class="f18">MAYO創辦人暨執行長</font> 
-                                </h6>
-                                <h5 class="f18 poA">專題演講一</h5>
-                            </div>
-                            <h4 class="f_grey f18">
-                                #智慧浪潮來襲，HR如何領軍站上浪頭
-                            </h4>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_wrapper">
-                                <img src="@/assets/img/person.jpg" alt="">
-                                <h6 class="f_white f30 poA">
-                                    簡士評
-                                    <font class="f18">MAYO創辦人暨執行長</font>
-                                </h6>
-                                <h5 class="f18 poA">專題演講一</h5>
-                            </div>
-                            <h4 class="f_grey f18">
-                                #智慧浪潮來襲，HR如何領軍站上浪頭
-                            </h4>
-                        </div>
+                        
                     </div>
                 </div>
             <!--</no-ssr> -->
@@ -413,6 +397,15 @@ img {
     }
 }
 
+#banner{
+    position: relative;
+    h1{
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+}
 
 .section{
     text-align: center;
@@ -429,12 +422,16 @@ img {
     position: relative;
     h4{
         padding: 0 10px;
+        position: relative;
+
     }
 }
 
 .img_wrapper {
     position: relative;
     margin-bottom: 30px;
+    border-radius: 50%;
+    overflow: hidden;
     *{
         color: #fff;
     }  
@@ -442,7 +439,7 @@ img {
         width: 100%;
     }
     h6{
-        bottom: 30%;
+        top: 55%;
         width: 100%;
         transform: translate(0 , -50%);
         font{
@@ -624,13 +621,13 @@ input[type='checkbox'] + label {
 }
 
 
-.google_map h5, .img_wrapper h5 {
+.swiper-slide h5 {
     color: #fff;
-    bottom: 0;
+    top: -60px;
     left: 50%;
     display: inline-block;
     padding: 0 21px;
-    transform: translate(-50% , 50%);
+    transform: translate(-50%, 0);
     border-radius: 18px;
     line-height: 36px;
     background-blend-mode: screen;
