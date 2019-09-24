@@ -176,18 +176,18 @@
               </div>
               <div class="tr">
                   <p>主辦單位</p>
-                  <input type="text" name="organizer" v-model="formObj.organizer" required="required">
+                  <input type="text" name="dept" v-model="formObj.dept" required="required">
               </div>
               <div class="tr">
                   <p>職稱</p>
-                  <input type="text" name="jobTitle" v-model="formObj.jobTitle" required="required">
+                  <input type="text" name="job" v-model="formObj.job" required="required">
               </div>
               <div class="tr">
                   <p class="optional">身分證字號</p>
-                  <input type="text" name="id" v-model="formObj.id">
+                  <input type="text" name="rocid" v-model="formObj.rocid">
               </div>
               <div class="tr t_left">
-                  <input type="checkbox" name="" id="agreement" v-model="agreement">
+                  <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
                   <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
               </div>
               <button class="f18 submit" type="submit">送出</button>
@@ -213,6 +213,9 @@
 </template>
 
 <script>
+import axios from 'axios'
+import qs from 'qs';
+
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
@@ -233,15 +236,16 @@ export default {
             }
         },
         formObj: {
-            name:'',
-            phone:'',
-            email:'',
-            session:'',
-            organizer:'',
-            jobTitle:'',
-            id: '',
+            name:'李芷儀',
+            phone:'0978036006',
+            email:'hn85412404@gmail.com',
+            session:'台中',
+            dept:'ABC',
+            job:'設計師',
+            rocid: 'A226498914',
+            event: '108管理策略論壇',
         },
-        agreement: false, 
+        agreement: true, 
       }
     },
     computed: {
@@ -271,18 +275,24 @@ export default {
            
         },
         onSubmit(e) {
-            let formData = JSON.stringify(this.formObj);
-            console.log(formData);
-            console.log(this.validatePhone, this.validateMail, this.validateId);
-            // this.$http.post('', formData).then(function (res) {
-            //     if (res.status === 2000) {
-
-            //     }
-            //     else{
-
-            //     }
-            // })
+            // let formData = JSON.stringify(this.formObj);
+            // console.log(formData);
+            // console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',this.validateId);
             e.preventDefault();
+            
+            axios
+                .post('http://35.185.161.185:9000/api/postAttendee.php', qs.stringify(this.formObj))
+                .then(response => {
+                    console.log(response.data);
+                    if(response.status === 200) {
+                        alert('表單送出成功')
+                    } else {
+                        alert('表單尚未送出')
+                    }
+                } )
+                .catch( error =>  console.log(error) );
+            
+
         }
         
     },
@@ -580,6 +590,7 @@ input[type='checkbox'] {
     width: 26px;
     height: 26px;
     vertical-align: top;
+    position: relative;
 }
 
 input[type='checkbox'] + label {
@@ -587,6 +598,25 @@ input[type='checkbox'] + label {
     vertical-align: top;
 }
 
+input[type='checkbox']:checked {
+    &:before, &:after{
+        content: '';
+        top: 0;
+        left: 0;
+        display: block;
+        background-color: #0042a0;
+        width: 4px;
+        height: 16px;
+        transform: rotate(45deg) translate(17px, -11px);
+        position: absolute;
+        transform-origin: left top;
+    }
+    &:after{
+        height: 10px;
+        transform: rotate(-45deg) translate(-7px, 11px);
+    }
+
+}
 
 .tr {
     max-width: 550px;
