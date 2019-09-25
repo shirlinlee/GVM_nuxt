@@ -209,6 +209,7 @@
         
     </div>
     <Footer />
+    <Popup @popupHandler="popupHandler" :popupMsg="popupMsg" v-show="isPopupOpen"/>
   </div>
 </template>
 
@@ -216,8 +217,9 @@
 import axios from 'axios'
 import qs from 'qs';
 
-import Header from '~/components/Header.vue'
-import Footer from '~/components/Footer.vue'
+import Header from '~/components/Header.vue';
+import Footer from '~/components/Footer.vue';
+import Popup from '~/components/Popup.vue';
 
 export default {
     data () {
@@ -246,6 +248,8 @@ export default {
             event: '108管理策略論壇',
         },
         agreement: true, 
+        isPopupOpen: false,
+        popupMsg: ''
       }
     },
     computed: {
@@ -266,6 +270,7 @@ export default {
     components: {
         Header,
         Footer,
+        Popup,
     },
     mounted() {
        
@@ -273,6 +278,9 @@ export default {
     methods: {
         deviceDetect() {
            
+        },
+        popupHandler(el) {
+            this.isPopupOpen = el.close;
         },
         onSubmit(e) {
             // let formData = JSON.stringify(this.formObj);
@@ -285,9 +293,10 @@ export default {
                 .then(response => {
                     console.log(response.data);
                     if(response.status === 200) {
-                        alert('表單送出成功')
+                        this.isPopupOpen = true;
+                        this.popupMsg = '報名成功！';
                     } else {
-                        alert('表單尚未送出')
+                        // alert('表單尚未送出')
                     }
                 } )
                 .catch( error =>  console.log(error) );
