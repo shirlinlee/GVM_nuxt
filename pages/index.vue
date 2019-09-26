@@ -4,207 +4,299 @@
 
     <div id="content">
         <div id="banner">
-            <img src="@/assets/img/kvbg.jpg" alt="">
-            <h1 class="poA">
-                <img src="@/assets/img/hl.png" alt="">
-            </h1>
+            <!-- <img src="@/assets/img/kvbg.jpg" alt=""> -->
+            <div class="kv">
+                <h1>
+                    <img src="@/assets/img/hl.png" class="pc" alt="新時代人力資源管理策略系列">
+                    <img src="@/assets/img/hl_m.png" class="mb" alt="新時代人力資源管理策略系列">
+                </h1>
+                <img src="@/assets/img/ppls.png" class="global">
+            </div>
         </div>
-      <div class="section" id="sec1">
+
+        <div class="section" id="intro">
+            <div class="gradient_bg"></div>
             <div class="title">
                 <h4 class="f66 poA">01</h4>
-                <h3 class="f30">專題演講者</h3>
-                <h2 class="f66">SPEAKERS</h2>
+                <h3 class="f30">論壇簡介</h3>
+                <h2 class="f66">INTRODUCTION</h2>
             </div>
+            <div class="W1140">
+                <h1 class="f30">人力資源X數位轉型X企業接班</h1>
+                <p class="f18">
+                    21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
+                    臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
+                    勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
+                    期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
+                    共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
+                </p>
+            </div>
+      </div>
+      <div class="section" id="speaker">
+            <img src="@/assets/img/rightimg.png" class="poA geo_top">
+            <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
+            <img src="@/assets/img/bg-02.png" class="poA bg W100">
+            
+            <div class="W1140 poR" >
+                <div class="title">
+                    <h4 class="f66 poA">01</h4>
+                    <h3 class="f30">專題演講者</h3>
+                    <h2 class="f66">SPEAKERS</h2>
+                </div>
             <!-- <no-ssr placeholder="loading..."> -->
                 <div v-swiper:mySwiper="swiperOption" id="person_slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <div class="swiper-slide" v-for="(slide, index) in allSpeakers">
                             <div class="img_wrapper">
-                                <img src="@/assets/img/speaker-1.jpg" alt="">
+                                <img :src="slide.photo" alt="">
                                 <h6 class="f_white f30 poA">
-                                    簡士評
-                                    <font class="f18">MAYO創辦人暨執行長</font>
+                                    {{ slide.name }}
+                                    <font class="f18" v-html="slide.title" />
                                 </h6>
-                                
+                                <p class="session_tag poA f18">{{ slide.session}} </p>
                             </div>
                             <h4 class="f_grey f18">
-                                <h5 class="f18 poA">專題演講一</h5>
-                                #新科技帶來新企業，未來人才你挑對了嗎?
+                                <h5 class="f18 poA">{{ slide.subject }}</h5>
+                                {{ slide.hashtag }}
                             </h4>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="img_wrapper">
-                                <img src="@/assets/img/speaker-2.jpg" alt="">
-                                <h6 class="f_white f30 poA">
-                                    謝鄭忠
-                                    <font class="f18">宇瞻科技行政服務處處長</font>
-                                </h6>
-                                
-                            </div>
-                            <h4 class="f_grey f18">
-                                <h5 class="f18 poA">專題演講一</h5>
-                                    #從隊員變教練──迎向數位轉型，人資要比老闆清楚的那件事
-                            </h4>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="img_wrapper">
-                                <img src="@/assets/img/speaker-3.jpg" alt="">
-                                <h6 class="f_white f30 poA">
-                                    孫弘岳
-                                    <font class="f18">國立臺灣師範大學科技應用與<br>人力資源發展學系助理教授</font>
-                                </h6>
-                                
-                            </div>
-                            <h4 class="f_grey f18">
-                                <h5 class="f18 poA">專題演講一</h5>
-                                #智慧浪潮來襲，HR如何領軍站上浪頭
-                            </h4>
-                        </div>
+                     
                         
                     </div>
+                   
                 </div>
-            <!--</no-ssr> -->
+                <!--</no-ssr> -->
+                <div class="slider_nav">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+               
 
       </div>
-      
-      <div class="section" id="sec2">
+
+       <div class="section" id="form">
+            <div class="W1140">
+                  <div class="title">
+                    <h4 class="f66 poA">02</h4>
+                    <h3 class="f30">填寫報名</h3>
+                    <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
+                </div>
+                <form @submit="onSubmit" action="https://vuejs.org/" method="post" class="f18" >
+                    <div class="tr t_right f_red">
+                        *為必填項目
+                    </div>
+                    <div class="tr">
+                        <p>姓名</p>
+                        <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>電話</p>
+                        <input type="number" name="phone" maxlength="10" v-model="formObj.phone" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>e-mail</p>
+                        <input type="email" name="email" v-model="formObj.email" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>場次</p>
+                        <select name="" id="event" v-model="formObj.session" required="required">
+                            <option value="台中場">台中場</option>
+                            <option value="彰化場">彰化場</option>
+                        </select>
+                    </div>
+                    <div class="tr">
+                        <p>主辦單位</p>
+                        <input type="text" name="dept" v-model="formObj.dept" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>職稱</p>
+                        <input type="text" name="job" v-model="formObj.job" required="required">
+                    </div>
+                    <div class="tr">
+                        <p class="optional">身分證字號</p>
+                        <input type="text" name="rocid" v-model="formObj.rocid">
+                    </div>
+                    <div class="tr t_left">
+                        <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
+                        <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
+                    </div>
+                    <button class="f18 submit" type="submit">送出</button>
+                </form>
+            
+            </div>
+          
+      </div>
+
+      <div class="section" id="schedual">
           <div class="title">
-              <h4 class="f66 poA">02</h4>
+              <h4 class="f66 poA">03</h4>
               <h3 class="f30">地方論壇議程</h3>
               <h2 class="f66">SCHEDULE</h2>
           </div>
           <div class="schedual_wrapper W1140">
-              <div class="location active">
-                  <h5 class="f30">-台中場-</h5>
-                  <h6 class="f48">10/15</h6>
-              </div>
-              <div class="eventsList f24">
-                  <div class="event">
-                      <p class="time">13:30 – 14:00</p>
-                      <p class="dot"></p>
-                      <p class="subject">與會人員/貴賓報到</p>
+                <div class="tab">
+                    <div class="location" v-for="(tab, index) in sessions" :class="{'active': index === schedualCurrent }" @click="schedualTabHandler(index)">
+                        <h5 class="f30">-{{ tab.name }}-</h5>
+                        <h6 class="f48">{{ tab.time }}</h6>
+                    </div>
+                </div>
+              
+                <div class="eventsList f24" v-show="schedualCurrent===0">
+                    <div class="event">
+                        <p class="time">13:30 – 14:00</p>
+                        <p class="dot"></p>
+                        <div class="subject">與會人員/貴賓報到</div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">13:30 – 14:00</p>
-                      <p class="dot"></p>
-                      <p class="subject">活動開場/長官致詞</p>
+                    </div>
+                    <div class="event">
+                        <p class="time">13:30 – 14:00</p>
+                        <p class="dot"></p>
+                        <div class="subject">活動開場/長官致詞</div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">14:05 – 14:35</p>
-                      <p class="dot"></p>
-                      <p class="subject">
-                          專題演講一
-                          <span class="f_blue">
-                              新科技帶來新企業，<br>
-                              未來人才你挑對了嗎?
-                          </span>
-                      </p>
+                    </div>
+                    <div class="event">
+                        <p class="time">14:05 – 14:35</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">專題演講一</h2>
+                            <span class="f_blue">
+                                新科技帶來新企業，<br>
+                                未來人才你挑對了嗎?
+                            </span>
+                        </div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">14:35 – 15:05</p>
-                      <p class="dot"></p>
-                      <p class="subject">
-                          專題演講二
-                          <span class="f_blue">
-                              隊員變教練──迎向數位轉型，
-                              人資要比老闆清楚的那件事
-                          </span>
-                      </p>
+                    </div>
+                    <div class="event">
+                        <p class="time">14:35 – 15:05</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">專題演講二</h2>
+                            <span class="f_blue">
+                                隊員變教練──迎向數位轉型，
+                                人資要比老闆清楚的那件事
+                            </span>
+                        </div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">15:05 – 16:25</p>
-                      <p class="dot"></p>
-                      <p class="subject">
-                          綜合座談暨交流Q&A
-                          <span class="f_blue">
-                              智慧浪潮來襲，
-                              HR如何領軍站上浪頭
-                          </span>
-                      </p>
+                    </div>
+                    <div class="event">
+                        <p class="time">15:05 – 16:25</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
+                            <span class="f_blue">
+                                智慧浪潮來襲，
+                                HR如何領軍站上浪頭
+                            </span>
+                        </div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">16:25 – 16:30</p>
-                      <p class="dot"></p>
-                      <p class="subject">大合影</p>
+                    </div>
+                    <div class="event">
+                        <p class="time">16:25 – 16:30</p>
+                        <p class="dot"></p>
+                        <div class="subject">大合影</div>
 
-                  </div>
-                  <div class="event">
-                      <p class="time">16:30 – </p>
-                      <p class="dot"></p>
-                      <p class="subject">散場/發放餐盒</p>
+                    </div>
+                    <div class="event">
+                        <p class="time">16:30 – </p>
+                        <p class="dot"></p>
+                        <div class="subject">散場/發放餐盒</div>
 
-                  </div>
+                    </div>
                 
-              </div>
+                </div>
+                    
+                <div class="eventsList f24" v-show="schedualCurrent===1">
+                    <div class="event">
+                        <p class="time">13:30 – 14:00</p>
+                        <p class="dot"></p>
+                        <div class="subject">與會人員/貴賓報到</div>
 
-          </div>
+                    </div>
+                    <div class="event">
+                        <p class="time">13:30 – 14:00</p>
+                        <p class="dot"></p>
+                        <div class="subject">活動開場/長官致詞</div>
+
+                    </div>
+                    <div class="event">
+                        <p class="time">14:05 – 14:35</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">專題演講一</h2>
+                            <span class="f_blue">
+                                跟對老闆不如幫對老闆-<br />
+                                二代接班的 HR角色怎麼演?
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="event">
+                        <p class="time">14:35 – 15:05</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">專題演講二</h2>
+                            <span class="f_blue">
+                                老將or新兵?用對的都是好兵! <br />
+                                ──HR的跨世代用人哲學
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="event">
+                        <p class="time">15:05 – 16:25</p>
+                        <p class="dot"></p>
+                        <div class="subject">
+                            <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
+                            <span class="f_blue">
+                                輔佐繼承者們HR成功秘笈
+                            </span>
+                        </div>
+
+                    </div>
+                    <div class="event">
+                        <p class="time">16:25 – 16:30</p>
+                        <p class="dot"></p>
+                        <div class="subject">大合影</div>
+
+                    </div>
+                    <div class="event">
+                        <p class="time">16:30 – </p>
+                        <p class="dot"></p>
+                        <div class="subject">散場/發放餐盒</div>
+                    </div>
+                    
+                </div>
+            </div>
       </div>
 
-      <div class="section" id="sec3">
-          <div class="title">
-              <h4 class="f66 poA">03</h4>
-              <h3 class="f30">填寫報名</h3>
-              <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
-          </div>
-          <form @submit="onSubmit" action="https://vuejs.org/" method="post" class="f18" >
-              <div class="tr t_right f_red">
-                  *為必填項目
-              </div>
-              <div class="tr">
-                  <p>姓名</p>
-                  <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
-              </div>
-              <div class="tr">
-                  <p>電話</p>
-                  <input type="number" name="phone" maxlength="10" v-model="formObj.phone" required="required">
-              </div>
-              <div class="tr">
-                  <p>e-mail</p>
-                  <input type="email" name="email" v-model="formObj.email" required="required">
-              </div>
-              <div class="tr">
-                  <p>場次</p>
-                  <select name="" id="event" v-model="formObj.session" required="required">
-                      <option value="台中">台中</option>
-                      <option value="彰化">彰化</option>
-                  </select>
-              </div>
-              <div class="tr">
-                  <p>主辦單位</p>
-                  <input type="text" name="dept" v-model="formObj.dept" required="required">
-              </div>
-              <div class="tr">
-                  <p>職稱</p>
-                  <input type="text" name="job" v-model="formObj.job" required="required">
-              </div>
-              <div class="tr">
-                  <p class="optional">身分證字號</p>
-                  <input type="text" name="rocid" v-model="formObj.rocid">
-              </div>
-              <div class="tr t_left">
-                  <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
-                  <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
-              </div>
-              <button class="f18 submit" type="submit">送出</button>
-          </form>
-      </div>
-
-      <div class="section" id="sec4">
+     
+      <div class="section" id="location">
           <div class="title">
               <h4 class="f66 poA">04</h4>
               <h3 class="f30">場地資訊</h3>
               <h2 class="f66">&nbsp;PLACE&nbsp;</h2>
           </div>
-          <div class="google_map">
-              <!-- <img src="" alt=""> -->
-              <h5 class="f18 poA">國立自然科學博物館 第三演講(藍)廳</h5>
+          <div class="google_map W1140">
+                <!-- <img src="" alt=""> -->
+                <div class="tab">
+                    <div class="location" v-for="(tab, index) in sessions" :class="{'active': index === locationCurrent }" @click="locationTabHandler(index)">
+                        <h5 class="f30">-{{ tab.name }}-</h5>
+                        <h6 class="f48">{{ tab.time }}</h6>
+                        <div class="bg_grey">
+                            <img class="pin poA" src="@/assets/img/pin.png" />
+                            <p v-html="tab.place" />
+                            <font class="f_grey">{{ tab.location }}</font>
+                        </div>
+                    </div>
+                </div>
+                <div class="map_imgs">
+                    <img src="@/assets/img/map_01.jpg" v-show="locationCurrent===0" />
+                    <img src="@/assets/img/map_02.jpg" v-show="locationCurrent===1" />
+
+                </div>
+              
           </div>
-          <h6 class="f18"><br>臺中市北區館前路一號B1</h6>
       </div>
         
     </div>
@@ -225,9 +317,17 @@ export default {
     data () {
       return {
         carouselCurrent: 0,
+        schedualCurrent: 0,
+        locationCurrent: 0,
+        sessions: [{time: '10/14', name: '台中場', location: '台中市407西屯區科園路19號', place: '中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '50544彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學院國際會議廳'}],
         swiperOption: {
+            loop: true,
             slidesPerView: 3,
             spaceBetween: 0,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
              breakpoints: { 
                 768: { 
                     slidesPerView: 2,
@@ -241,7 +341,7 @@ export default {
             name:'李芷儀',
             phone:'0978036006',
             email:'hn85412404@gmail.com',
-            session:'台中',
+            session:'台中場',
             dept:'ABC',
             job:'設計師',
             rocid: 'A226498914',
@@ -249,7 +349,15 @@ export default {
         },
         agreement: true, 
         isPopupOpen: false,
-        popupMsg: ''
+        popupMsg: '',
+        allSpeakers: [
+            {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-1.jpg'), title: 'MAYO創辦人暨執行長', subject:'專題演講一', hashtag: '#新科技帶來新企業，未來人才你挑對了嗎?'},
+            {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#從隊員變教練 ── 迎向數位轉型，人資要比老闆清楚的那件事'},
+            {session: '台中場', name:'孫弘岳', photo: require('@/assets/img/speaker-3.jpg'), title: '國立臺灣師範大學科技應用與<br />人力資源發展學系助理教授', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，HR如何領軍站上浪頭'},
+            {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '##跟對老闆不如幫對老闆 ── 二代接班的HR角色怎麼演?'},
+            {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵! ── HR的跨世代用人哲學'},
+            {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
+        ]
       }
     },
     computed: {
@@ -281,6 +389,12 @@ export default {
         },
         popupHandler(el) {
             this.isPopupOpen = el.close;
+        },
+        schedualTabHandler(index) {
+            this.schedualCurrent = index;
+        },
+        locationTabHandler(index) {
+            this.locationCurrent = index;
         },
         onSubmit(e) {
             // let formData = JSON.stringify(this.formObj);
@@ -318,9 +432,17 @@ export default {
     outline:none 
 }
 
-body {
+body, html {
+    font-family: 'Noto Sans TC', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1,h2, h3, h4, h5, h6, p, span {
+    font-weight: normal;
     font-family: 'Noto Sans TC', sans-serif;
 }
+
 img {
     max-width: 100%;
 }
@@ -332,7 +454,8 @@ img {
     max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .f14{
@@ -341,6 +464,7 @@ img {
 
 .f18{
     font-size: 18px;
+    line-height: 1.5;
 }
 
 .f24{
@@ -364,7 +488,7 @@ img {
 }
 
 .f_grey {
-    color: #333;
+    color: #666;
 }
 
 .f_white {
@@ -383,6 +507,10 @@ img {
     text-align: right;
 }
 
+.bg_grey {
+    background-color: #f1f1f1;
+}
+
 .poA {
     position: absolute;
 }
@@ -391,8 +519,20 @@ img {
     position: fixed;
 }
 
+.poR {
+    position: relative;
+}
+
 .flex {
     display: flex;
+}
+
+.mb{
+    display: none;
+}
+
+.pc{
+    display: inline-block;
 }
 
 .title {
@@ -401,6 +541,7 @@ img {
     text-align: right;
     line-height: 1;
     margin-bottom: 50px;
+    z-index: 5;
     h2{
         font-family: 'Oswald', sans-serif;
         position: relative;
@@ -408,7 +549,7 @@ img {
 
     h4{
         font-family: 'Oswald', sans-serif;
-        background: -webkit-linear-gradient(#a6c0fe, #f68084);
+        background: linear-gradient(to bottom, #24509b, #6cc29d), linear-gradient(to bottom, #ffffff, #ffffff);;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         top: -8px;
@@ -418,15 +559,75 @@ img {
 
 #banner{
     position: relative;
-    h1{
+    background-image: url(../assets/img/kvbg.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 70vw;
+    min-height: 500px;
+    @media (max-width: 599px){
+        height: inherit;
+    }
+
+    .kv {
+        width: 92%;
+        max-width: 850px;
+        display: inline-block;
+        margin: 0 auto;
+        transform: translate(-50%, -50%);
         position: absolute;
-        top: 20%;
+        top: 50%;
         left: 50%;
-        transform: translate(-50%, 0);
+        text-align: center;
+        @media (max-width: 599px){
+            position: relative;
+            transform: translate(0, 0);
+            top: 0;
+            left: 0;
+            margin-left: 4%;
+        }
+        h1{
+           width: 100%;
+           padding: 0 0 10%;
+           @media (max-width: 599px){
+               width: 92%;
+               margin-left: 4%;
+               padding: 70px 0 5%;
+           }
+        }
+        .global {
+            width: 80%;
+            margin: 0 auto -50%;
+            @media (max-width: 599px){
+                width: 90%;
+                position: relative;
+            }
+        }   
+    }
+
+    
+}
+
+#intro {
+    position: relative;
+    z-index: 5;
+    padding-top: 99px;
+    background: #fff;
+    .gradient_bg {
+        background: linear-gradient(352deg, rgba(255,255,255,1) 26%, rgba(255,255,255,0.4) 54%, rgba(255,255,255,0) 54%);
+        height: 35vw;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(0, -100%);
+    }
+    .title {
+        margin-top: -80px;
     }
 }
 
 .section{
+    position: relative;
     text-align: center;
     padding: 40px 0 50px; 
 }
@@ -437,25 +638,53 @@ img {
     border-bottom: 1px solid #9b9b9b;
 }
 
+.slider_nav {
+    position: absolute;
+    top: 50%;
+    left: -10px;
+    width: calc(100% + 20px);
+    z-index: 100;
+    transform: translate(0, -50%);
+    opacity: 1;
+
+    >div {
+        width: 50px;
+        height: 50px;
+        border: solid 4px #ffffff;
+        background-color: #24509b;
+        border-radius: 50%;
+        color: white;
+        opacity: 1;
+        background-image: url(../assets/img/arrow.svg);
+        background-size: 15px;
+        
+        &.swiper-button-next {
+            right: 0;
+        }
+        &.swiper-button-prev {
+            left: 0;
+            transform: rotate(180deg);
+        }
+    }
+}
+
 .swiper-slide {
     position: relative;
     h4{
         padding: 0 10px;
         position: relative;
-
+        margin-top: 30px;
     }
 }
 
 .img_wrapper {
     position: relative;
-    margin-bottom: 30px;
-    border-radius: 50%;
-    overflow: hidden;
     *{
         color: #fff;
     }  
     img {
         width: 100%;
+        border-radius: 50%;
     }
     h6{
         top: 55%;
@@ -465,40 +694,153 @@ img {
             display: block;
         }
     }
+    .session_tag {
+        color: #fff;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background-color: #e64a4a;
+        border-radius: 40px;
+        top: 0;
+        left:0;
+    }
 }
 
-#sec2, #sec3 {
+#intro {
+    padding-left: 15px;
+    padding-right: 15px;
+    p {
+        padding: 30px 0 50px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #9b9b9b;
+        line-height: 1.6;
+        color: #666666;
+        font {
+            color: #24509b;
+        }
+    }
+}
+#schedual, #form {
     background-color: #f1f1f1;
     padding-left: 20px;
     padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+#speaker {
+    z-index: 5;
+    overflow: visible;
+    .geo_top {
+        right: 0;
+        top: -80px; 
+        width: 40%;
+    }
+    .geo_bottom {
+        bottom: -55vw;
+        width: 40%;
+        left: 0;
+         z-index: -1;
+    }
+    .bg {
+        bottom: -50vw;
+        left: 50%;
+        transform: translate(-50%, 0); 
+        width: 100%;
+        min-width: 1680px;
+        z-index: 1;
+    }
+}
+
+#schedual {
+
+}
+
+#form .W1140{
+    z-index: 40;
+    position: relative;
+}
 
 .schedual_wrapper {
     flex-wrap: wrap;
     flex-direction: row;
 }
-
-.location {
+.tab {
     display: inline-block;
-    width: 125px;
-    line-height: 1.2;
-    vertical-align: top;
+    width: 340px;
     margin-top: 35px;
-     h5{
-        display: block;
+    vertical-align: top;
+    * {
+        transition: all .4s;
     }
-     h6{
-        display: block;
-        font-family: 'Oswald', sans-serif;
+    .location {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+        line-height: 1.2;
+        margin-bottom: 80px;
+        opacity: .3;
+        h5{
+            display: block;
+        }
+        h6{
+            display: block;
+            font-family: 'Oswald', sans-serif;
+        }
+        &:hover {
+            opacity: .6;
+        }
+        .bg_grey {
+            padding: 30px;
+            position: relative;
+            line-height: 1.5;
+            margin-top: 30px;
+            display: none;
+            margin-bottom: -40px;
+            .pin {
+                width: 25px;
+                top:0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .f_grey {
+                padding-top: 10px;
+                display: block;
+            }
+        }
+        &.active {
+            opacity: 1;
+            &:after {
+                content: '';
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 6px 0 6px 12px;
+                border-color: transparent transparent transparent #e64a4a;
+                position: absolute;
+                right: 10%;
+                top: 48px;
+                transform: translate(-100%, -50%);
+            }
+            .bg_grey {
+                display: block;
+            }
+        }
     }
+}
+
+.map_imgs {
+    display: inline-block;
+    width: calc(100% - 340px - 30px);
+    margin-left: 25px;
+    margin-bottom: 50px;
 }
 
 .eventsList {
     display: inline-block;
-    width: calc(100% - 245px);
+    width: calc(100% - 340px - 10px);
     margin-bottom: 50px;
-    margin-left: 85px;
+    margin-left: 0;
     *{
         vertical-align: top;
     }
@@ -509,6 +851,16 @@ img {
     padding: 35px 40px;
     border-bottom: 1px solid #9b9b9b;
     position: relative;
+    text-align: left;
+    h2 {
+        display: inline-block;
+        border-radius: 18px;
+        background-image: linear-gradient(50deg, #24509b, #6cc29d);
+        padding: 5px 15px;
+    }
+    span {
+        display: block;
+    }
 }
 
 .time {
@@ -534,9 +886,7 @@ img {
         left: 217px;
         border-right: 1px dashed #9b9b9b;
     }
-
 }
-
 
 .subject {
     display: inline-block;
@@ -548,7 +898,6 @@ img {
         display: block;
     }
 }
-
 
 form {
     margin-top: -80px;
@@ -568,14 +917,12 @@ form {
         display: block;
         height: 60px;
         line-height: 60px;
-
         background-color: #0042a0;
         border-radius: 3px;
         color: #fff;
         width: 100%;
         max-width: 550px;
-        margin: 10px;
-
+        margin: 10px auto;
     }
 }
 
@@ -624,7 +971,6 @@ input[type='checkbox']:checked {
         height: 10px;
         transform: rotate(-45deg) translate(-7px, 11px);
     }
-
 }
 
 .tr {
@@ -645,20 +991,14 @@ input[type='checkbox']:checked {
             &:before {
                 display: none;
             }
-            
         }
     }
-   
 }
-
-
 
 
 .google_map {
-    height: 40vw;
     position: relative;
 }
-
 
 .swiper-slide h5 {
     color: #fff;
@@ -675,6 +1015,44 @@ input[type='checkbox']:checked {
     white-space: nowrap;
 }
 
+@media (max-width: 768px){
 
+}
+
+@media (max-width: 599px){
+    .mb{
+        display: inline-block;
+    }
+
+    .pc{
+        display: none;
+    }
+
+    .f14{
+        font-size: 14px;
+    }
+
+    .f18{
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .f24{
+        font-size: 24px;
+    }
+
+    .f30{
+        font-size: 30px;
+    }
+
+    .f48{
+        font-size: 48px;
+    }
+
+    .f66{
+        font-size: 66px;
+    }
+
+}
 
 </style>

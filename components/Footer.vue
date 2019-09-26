@@ -1,6 +1,11 @@
 <template>
    <div id="footer">
-        <img src="@/assets/img/btngo.png" class="poF goToTop" @click="scrollToTop" alt="">
+        <div class="poF goToTop" @click="scrollToTop">
+            <img src="@/assets/img/btngo.png" alt="">
+            <span class="f30 poA">立即<br />報名<br /><img src="@/assets/img/arrow.png" class="arrow" alt=""></span>
+            
+        </div>
+        
         <img src="@/assets/img/gv-mlogo.jpg" class="logo" alt="">
         <img src="@/assets/img/wd-alogo.jpg" class="logo" alt="">
         <p class="f14"><br>Copyright© 1999~2019遠見天下文化出版股份有限公司. All rights reserved.</p>
@@ -33,7 +38,25 @@ export default {
     .goToTop {
         right: 40px;
         bottom: 40px;
-        width: 100px;
+        width: 155px;
+        z-index: 400;
+        @media (max-width: 599px){
+            transform: scale(.5);
+            transform-origin: right bottom;
+        }
+
+        span{
+            width: 100%;
+            left: -2px;
+            display: block;
+            line-height: 1.2;
+            top: 33px;
+            .arrow {
+                width: 20px;
+                display: block;
+                margin: 5px auto 0;
+            }
+        }
     }
      p{
         display: block;
