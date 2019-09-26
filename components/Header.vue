@@ -1,10 +1,13 @@
 <template>
-  <div id="top" class="W100 bg_trans_white">
+  <div id="top" class="W100 bg_trans_white" :class="{'bg_blue': showFixBar}">
+      <img src="@/assets/img/gv-mlogo.jpg" alt="" class="logo">
+      <img src="@/assets/img/logotop-2.png" alt="" class="logo">
+
       <ul :class="{'show': isNavOpen}">
-          <li>講者簡介</li>
-          <li>論壇議程</li>
-          <li>立即報名</li>
-          <li>場地資訊</li>
+          <li @click="scrollHandler('#speaker')">講者簡介</li>
+          <li @click="scrollHandler('#schedual')">論壇議程</li>
+          <li @click="scrollHandler('#form')">立即報名</li>
+          <li @click="scrollHandler('#location')">場地資訊</li>
       </ul>
       <div class="hambergur mb" :class="{'show': isNavOpen}" @click="navHandler">
         <span />
@@ -15,16 +18,40 @@
 </template>
 
 <script>
+  import $ from 'jquery';
+
   export default {
     data() {
       return {
         isNavOpen: false,
+        $body: null,
+        showFixBar: false,
       }
+    },
+    mounted() {
+      this.$body =  (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');
+      this.$nextTick( ()=> {
+        window.addEventListener("scroll", this.deviceTop);
+      });
     },
     methods: {
       navHandler() {
         this.isNavOpen = !this.isNavOpen;
+      },
+      scrollHandler(dom) {
+        this.isNavOpen = false;
+        this.$body.animate({scrollTop: $(dom).offset().top - 80 });
+      },
+      deviceTop() {
+          if ($(window).scrollTop() >= window.innerHeight ) {
+            this.showFixBar = true;
+          } else {
+            this.showFixBar = false;
+          }
       }
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.deviceTop);
     }
   }
 </script>
@@ -35,11 +62,41 @@
   text-align: center;
   position: fixed;
   z-index: 300;
+  transition: all .4s;
+  height: 80px;
+
   li{
     display: inline-block;
-    line-height: 90px;
+    line-height: 80px;
     padding: 0 15px;
     color: #fff;
+  }
+  ul {
+    padding: 0 20px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .logo {
+    float: left;
+    margin-left: 20px;
+    height: 36px;
+    margin-top: 20px;
+    &:nth-child(2) {
+      height: 44px;
+      margin-top: 16px;
+    }
+    @media (max-width: 599px){
+      margin-top: 12px;
+      height: 25px;
+      &:nth-child(2) {
+        height: 31px;
+        margin-top: 10px;
+      }
+    }
+  }
+  &.bg_blue {
+    background-color: #043884;
   }
   @media (max-width: 599px){
     background-color: #043884;
@@ -52,6 +109,7 @@
       left: 100%;
       z-index: 300;
       background-color: #043884;
+      transform: translate(0, 0);
       transition: all .4s;
       &.show {
         left: 0;

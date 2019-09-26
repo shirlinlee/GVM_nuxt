@@ -46,7 +46,7 @@
             <!-- <no-ssr placeholder="loading..."> -->
                 <div v-swiper:mySwiper="swiperOption" id="person_slider">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" v-for="(slide, index) in allSpeakers">
+                        <div class="swiper-slide" v-for="(slide, index) in allSpeakers" :key="'speaker_'+index">
                             <div class="img_wrapper">
                                 <img :src="slide.photo" alt="">
                                 <h6 class="f_white f30 poA">
@@ -82,7 +82,7 @@
                     <h3 class="f30">填寫報名</h3>
                     <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
                 </div>
-                <form @submit="onSubmit" action="https://vuejs.org/" method="post" class="f18" >
+                <form @submit="onSubmit" method="post" class="f18" >
                     <div class="tr t_right f_red">
                         *為必填項目
                     </div>
@@ -136,7 +136,7 @@
           </div>
           <div class="schedual_wrapper W1140">
                 <div class="tab">
-                    <div class="location" v-for="(tab, index) in sessions" :class="{'active': index === schedualCurrent }" @click="schedualTabHandler(index)">
+                    <div class="location" v-for="(tab, index) in sessions" :key="'tab_'+index" :class="{'active': index === schedualCurrent }" @click="schedualTabHandler(index)">
                         <h5 class="f30">-{{ tab.name }}-</h5>
                         <h6 class="f48">{{ tab.time }}</h6>
                     </div>
@@ -280,10 +280,10 @@
           <div class="google_map W1140">
                 <!-- <img src="" alt=""> -->
                 <div class="tab">
-                    <div class="location" v-for="(tab, index) in sessions" :class="{'active': index === locationCurrent }" @click="locationTabHandler(index)">
+                    <div class="location" v-for="(tab, index) in sessions" :key="'session_'+index" :class="{'active': index === locationCurrent }" @click="locationTabHandler(index)">
                         <h5 class="f30">-{{ tab.name }}-</h5>
                         <h6 class="f48">{{ tab.time }}</h6>
-                        <div class="bg_grey">
+                        <div class="bg_grey" :class="'bg_grey_'+index">
                             <img class="pin poA" src="@/assets/img/pin.png" />
                             <p v-html="tab.place" />
                             <font class="f_grey">{{ tab.location }}</font>
@@ -399,7 +399,7 @@ export default {
         onSubmit(e) {
             // let formData = JSON.stringify(this.formObj);
             // console.log(formData);
-            // console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',this.validateId);
+            console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',this.validateId);
             e.preventDefault();
             
             axios
@@ -458,8 +458,8 @@ img {
     padding-right: 20px;
 }
 
-.f14{
-    font-size: 14px;
+.f15{
+    font-size: 15px;
 }
 
 .f18{
@@ -542,6 +542,10 @@ img {
     line-height: 1;
     margin-bottom: 50px;
     z-index: 5;
+    @media (max-width: 599px){
+        margin-bottom: 30px;
+
+    }
     h2{
         font-family: 'Oswald', sans-serif;
         position: relative;
@@ -591,7 +595,7 @@ img {
            @media (max-width: 599px){
                width: 92%;
                margin-left: 4%;
-               padding: 70px 0 5%;
+               padding: 80px 0 5%;
            }
         }
         .global {
@@ -611,6 +615,8 @@ img {
     position: relative;
     z-index: 5;
     padding-top: 99px;
+    padding-left: 15px;
+    padding-right: 15px;
     background: #fff;
     .gradient_bg {
         background: linear-gradient(352deg, rgba(255,255,255,1) 26%, rgba(255,255,255,0.4) 54%, rgba(255,255,255,0) 54%);
@@ -624,18 +630,38 @@ img {
     .title {
         margin-top: -80px;
     }
+    p {
+        padding: 30px 0 50px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #9b9b9b;
+        line-height: 1.6;
+        color: #666666;
+        @media (max-width: 599px){
+            padding: 15px 0;
+        }
+        font {
+            color: #24509b;
+        }
+    }
 }
 
 .section{
     position: relative;
     text-align: center;
     padding: 40px 0 50px; 
+    @media (max-width: 599px){
+        padding: 20px 0 30px; 
+    }
 }
 
 #person_slider {
     margin-bottom: 50px;
     padding-bottom: 30px;
     border-bottom: 1px solid #9b9b9b;
+    @media (max-width: 599px){
+        margin-bottom: 30px;
+        padding-bottom: 25px;
+    }
 }
 
 .slider_nav {
@@ -646,7 +672,11 @@ img {
     z-index: 100;
     transform: translate(0, -50%);
     opacity: 1;
+    @media (max-width: 599px){
+        width: 100%;
+        left: 0;
 
+    }
     >div {
         width: 50px;
         height: 50px;
@@ -706,26 +736,17 @@ img {
     }
 }
 
-#intro {
-    padding-left: 15px;
-    padding-right: 15px;
-    p {
-        padding: 30px 0 50px;
-        margin-bottom: 30px;
-        border-bottom: 1px solid #9b9b9b;
-        line-height: 1.6;
-        color: #666666;
-        font {
-            color: #24509b;
-        }
-    }
-}
+
 #schedual, #form {
     background-color: #f1f1f1;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
+    @media (max-width: 599px){
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
 #speaker {
@@ -735,12 +756,20 @@ img {
         right: 0;
         top: -80px; 
         width: 40%;
+        @media (max-width: 599px){
+            top: -60px;
+            width: 60%;
+        }
+
     }
     .geo_bottom {
         bottom: -55vw;
         width: 40%;
         left: 0;
-         z-index: -1;
+        z-index: -1;
+        @media (max-width: 599px){
+            width: 60%;
+        }
     }
     .bg {
         bottom: -50vw;
@@ -749,10 +778,14 @@ img {
         width: 100%;
         min-width: 1680px;
         z-index: 1;
+        @media (max-width: 599px){
+            min-width: 768px;
+        }
     }
 }
 
-#schedual {
+#location {
+    padding-top: 70px;
 
 }
 
@@ -770,6 +803,10 @@ img {
     width: 340px;
     margin-top: 35px;
     vertical-align: top;
+    @media (max-width: 599px){
+        width: 88%;
+        margin-top: 0;
+    }
     * {
         transition: all .4s;
     }
@@ -780,6 +817,11 @@ img {
         line-height: 1.2;
         margin-bottom: 80px;
         opacity: .3;
+        @media (max-width: 599px){
+            width: 50%;
+            float: left;
+            margin-bottom: 30px;
+        }
         h5{
             display: block;
         }
@@ -797,11 +839,24 @@ img {
             margin-top: 30px;
             display: none;
             margin-bottom: -40px;
+            @media (max-width: 599px){
+                padding: 25px 20px;
+                width: 200%;
+                margin-top: 40px;
+                &.bg_grey_1 {
+                    margin-left: -100%;
+
+                }
+            }
             .pin {
                 width: 25px;
                 top:0;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                @media (max-width: 599px){
+                    width: 20px;
+                }
+
             }
             .f_grey {
                 padding-top: 10px;
@@ -821,6 +876,11 @@ img {
                 right: 10%;
                 top: 48px;
                 transform: translate(-100%, -50%);
+                @media (max-width: 599px){
+                    right: 52%;
+                    top: 70px;
+                    transform: translate(100%, 0) rotate(90deg);
+                }
             }
             .bg_grey {
                 display: block;
@@ -834,6 +894,10 @@ img {
     width: calc(100% - 340px - 30px);
     margin-left: 25px;
     margin-bottom: 50px;
+    @media (max-width: 599px){
+        width: 100%;
+        margin: 40px auto 20px;
+    }
 }
 
 .eventsList {
@@ -844,6 +908,9 @@ img {
     *{
         vertical-align: top;
     }
+    @media (max-width: 599px){
+        width: 100%;
+    }
 }
 
 .event {
@@ -852,6 +919,9 @@ img {
     border-bottom: 1px solid #9b9b9b;
     position: relative;
     text-align: left;
+    @media (max-width: 599px){
+        padding: 15px;
+    }
     h2 {
         display: inline-block;
         border-radius: 18px;
@@ -868,6 +938,9 @@ img {
     text-align: left;
     font-family: 'Oswald', sans-serif;
     display: inline-block;
+    @media (max-width: 599px){
+        width: 95px;
+    }
 }
 
 .dot {
@@ -877,6 +950,11 @@ img {
     border-radius:50%;
     background-color: #003b8f;
     margin: 9px 30px;
+    @media (max-width: 599px){
+        margin: 5px 15px;
+        width: 14px;
+        height: 14px;
+    }
     &:after {
         content: '';
         height: calc(100% - 20px);
@@ -885,6 +963,10 @@ img {
         top: 65px;
         left: 217px;
         border-right: 1px dashed #9b9b9b;
+        @media (max-width: 599px){
+            left: 136px;
+            top: 38px;
+        }
     }
 }
 
@@ -893,9 +975,13 @@ img {
     width: calc(100% - 225px);
     text-align: left;
     line-height: 1.25;
+    @media (max-width: 599px){
+        width: calc(100% - 160px);
+    }
     span{
         padding-top: 10px;
         display: block;
+        line-height: 1.4;
     }
 }
 
@@ -908,6 +994,10 @@ form {
     background-color: #ffffff;
     max-width: 800px;
     padding: 40px 40px 60px;
+    @media (max-width: 599px){
+        padding: 20px 20px 30px;
+        margin-top: -50px;
+    }
     a{
         color: #0042a0;
         border-bottom: 1px solid #0042a0;
@@ -982,6 +1072,9 @@ input[type='checkbox']:checked {
         width: 100px;
         display: inline-block;
         text-align: left;
+        @media (max-width: 599px){
+            width: 85px;
+        }
         &:before {
             content: '*';
             color: #e43434;
@@ -1028,29 +1121,28 @@ input[type='checkbox']:checked {
         display: none;
     }
 
-    .f14{
-        font-size: 14px;
+    .f15{
+        font-size: 13px;
     }
 
     .f18{
-        font-size: 18px;
-        line-height: 1.5;
+        font-size: 16px;
     }
 
     .f24{
-        font-size: 24px;
+        font-size: 17px;
     }
 
     .f30{
-        font-size: 30px;
+        font-size: 21px;
     }
 
     .f48{
-        font-size: 48px;
+        font-size: 29px;
     }
 
     .f66{
-        font-size: 66px;
+        font-size: 47px;
     }
 
 }

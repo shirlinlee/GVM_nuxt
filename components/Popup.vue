@@ -43,6 +43,9 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    @media (max-width: 599px){
+        padding: 40px 20px;
+    }
     p {
         padding-bottom: 20px;
     }
