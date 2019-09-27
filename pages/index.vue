@@ -1026,7 +1026,7 @@ img {
 
 .map_imgs {
     display: inline-block;
-    width: calc(100% - 340px - 30px);
+    width: calc(100% - 340px - 32px);
     margin-left: 25px;
     margin-bottom: 50px;
     @media (max-width: 768px){
@@ -1084,7 +1084,7 @@ img {
     height: 20px;
     border-radius:50%;
     background-color: #003b8f;
-    margin: 9px 30px;
+    margin: 9px 28px;
     @media (max-width: 599px){
         margin: 5px 12px;
         width: 14px;

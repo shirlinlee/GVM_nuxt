@@ -1,5 +1,10 @@
   
+const { resolve } = require('path');
+
 export default {
+  router: {
+    base: '/GVM_dist/'
+  },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -30,7 +35,9 @@ export default {
   css: [
     '~/assets/css/reset.css',
     'swiper/dist/css/swiper.css',
+    '~/assets/css/reset.css',
     '~/assets/css/animate.css'
+
   ],
   /*
   ** Plugins to load before mounting the App
@@ -73,5 +80,4 @@ export default {
     },
  
   },
-
 }
