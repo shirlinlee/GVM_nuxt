@@ -4,6 +4,9 @@ export default {
   /*
   ** Headers of the page
   */
+  // router: {
+  //   base: '/GVM_dist/'
+  // },
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -12,8 +15,10 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700|Oswald:500&display=swap' }
     ]
+   
   },
   /*
   ** Customize the progress-bar color

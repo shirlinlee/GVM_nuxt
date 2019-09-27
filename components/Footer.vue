@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         scrollToTop(dom) {
-            this.$body.animate({scrollTop: 0 });
+            this.$body.animate({scrollTop: $('#form').offset().top - 70 });
         }
     }
 }
@@ -48,7 +48,7 @@ export default {
     text-align: center;
     padding: 30px 20px;
     background-color: #f1f1f1;
-    
+    font-size: 14px;
     img.logo {
         display: inline-block;
         height: 58px;
@@ -105,6 +105,13 @@ export default {
         bottom: 40px;
         width: 155px;
         z-index: 400;
+        cursor: pointer;
+        transition: all .4s;
+        @media (min-width: 769px){
+            &:hover{
+                transform: scale(1.05);
+            }
+        }
         @media (max-width: 599px){
             width: 100px;
             right: 15px;
@@ -115,7 +122,8 @@ export default {
             left: -2px;
             display: block;
             line-height: 1.2;
-            top: 33px;
+            top: 36px;
+            font-weight: bold;
             @media (max-width: 599px){
                 top: 24px;
                 font-size: 15px;
@@ -125,9 +133,11 @@ export default {
                 width: 20px;
                 display: block;
                 margin: 5px auto 0;
+                
                 @media (max-width: 599px){
                     width: 15px;
                 }
+                
             }
         }
     }

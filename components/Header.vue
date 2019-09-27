@@ -3,13 +3,13 @@
       <img src="@/assets/img/gv-mlogo.jpg" alt="" class="logo">
       <img src="@/assets/img/logotop-2.png" alt="" class="logo">
 
-      <ul :class="{'show': isNavOpen}">
+      <ul :class="{'show': isNavOpen}" class="f18">
           <li @click="scrollHandler('#speaker')">講者簡介</li>
           <li @click="scrollHandler('#schedual')">論壇議程</li>
           <li @click="scrollHandler('#form')">立即報名</li>
           <li @click="scrollHandler('#location')">場地資訊</li>
       </ul>
-      <div class="hambergur mb" :class="{'show': isNavOpen}" @click="navHandler">
+      <div class="hambergur" :class="{'show': isNavOpen}" @click="navHandler">
         <span />
         <span />
         <span />
@@ -40,7 +40,7 @@
       },
       scrollHandler(dom) {
         this.isNavOpen = false;
-        this.$body.animate({scrollTop: $(dom).offset().top - 60 });
+        this.$body.animate({scrollTop: $(dom).offset().top - 70 });
       },
       deviceTop() {
           if ($(window).scrollTop() >= 90 ) {
@@ -68,14 +68,17 @@
   li{
     display: inline-block;
     line-height: 80px;
-    padding: 0 15px;
     color: #fff;
+    font-weight: bold; 
+    padding: 0 30px;
+    
   }
   ul {
     padding: 0 20px;
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
+    width: 100%;
   }
   .logo {
     float: left;
@@ -86,7 +89,8 @@
       height: 44px;
       margin-top: 16px;
     }
-    @media (max-width: 599px){
+   
+    @media (max-width: 768px){
       margin-top: 12px;
       height: 25px;
       &:nth-child(2) {
@@ -98,7 +102,10 @@
   &.bg_blue {
     background-color: #043884;
   }
-  @media (max-width: 599px){
+  .hambergur {
+    display: none;
+  }
+  @media (max-width: 768px){
     background-color: #043884;
     height: 50px;
     ul {
@@ -121,6 +128,7 @@
       }
     }
     .hambergur {
+      display: block;
       float: right;
       margin: 13px 16px;
       span {

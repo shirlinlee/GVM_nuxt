@@ -16,7 +16,7 @@
         </div>
 
         <div class="section" id="intro">
-            <div class="gradient_bg"></div>
+            <!-- <div class="gradient_bg"></div> -->
             <div class="wow fadeInUp">
                 <div class="title">
                     <h4 class="f66 poA">01</h4>
@@ -41,9 +41,9 @@
             <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
             <img src="@/assets/img/bg-02.png" class="poA bg W100">
             
-            <div class="W1140 poR wow fadeInUp">
+            <div class="W1140 poR wow fadeInUp" style="z-index: 20;">
                 <div class="title">
-                    <h4 class="f66 poA">01</h4>
+                    <h4 class="f66 poA">02</h4>
                     <h3 class="f30">專題演講者</h3>
                     <h2 class="f66">SPEAKERS</h2>
                 </div>
@@ -80,7 +80,7 @@
        <div class="section" id="form">
             <div class="W1140 wow fadeInUp">
                   <div class="title">
-                    <h4 class="f66 poA">02</h4>
+                    <h4 class="f66 poA">03</h4>
                     <h3 class="f30">填寫報名</h3>
                     <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
                 </div>
@@ -106,9 +106,10 @@
                             <option value="台中場">台中場</option>
                             <option value="彰化場">彰化場</option>
                         </select>
+                        <i class="arrow"></i>
                     </div>
                     <div class="tr">
-                        <p>主辦單位</p>
+                        <p>所屬單位</p>
                         <input type="text" name="dept" v-model="formObj.dept" required="required">
                     </div>
                     <div class="tr">
@@ -133,7 +134,7 @@
       <div class="section" id="schedual">
             <div class="wow fadeInUp">
                 <div class="title">
-                    <h4 class="f66 poA">03</h4>
+                    <h4 class="f66 poA">04</h4>
                     <h3 class="f30">地方論壇議程</h3>
                     <h2 class="f66">SCHEDULE</h2>
                 </div>
@@ -279,7 +280,7 @@
       <div class="section wow fadeInUp" id="location">
         <div class="wow fadeInUp">
             <div class="title">
-                <h4 class="f66 poA">04</h4>
+                <h4 class="f66 poA">05</h4>
                 <h3 class="f30">場地資訊</h3>
                 <h2 class="f66">&nbsp;PLACE&nbsp;</h2>
             </div>
@@ -338,6 +339,7 @@ export default {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev'
             },
+            spaceBetween : 30,
              breakpoints: { 
                 768: { 
                     slidesPerView: 2,
@@ -481,7 +483,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700|Oswald:500&display=swap');
 
 * {
     user-select: none; 
@@ -606,6 +607,7 @@ img {
     h2{
         font-family: 'Oswald', sans-serif;
         position: relative;
+        font-weight: 500;
     }
 
     h4{
@@ -615,6 +617,7 @@ img {
         -webkit-text-fill-color: transparent;
         top: -8px;
         left: -10px;
+        font-weight: 500;
     }
 }
 
@@ -624,16 +627,16 @@ img {
     background-position: center;
     background-size: cover;
     text-align: center;
-  
+    overflow: hidden;
     @media (max-width: 599px){
         height: inherit;
     }
 
     .kv {
-        width: 92%;
+        width: 88%;
         max-width: 850px;
         display: inline-block;
-        margin: 110px auto 0;
+        margin: 90px auto 0;
         position: relative;
         text-align: center;
         // @media (max-width: 599px){
@@ -643,18 +646,16 @@ img {
         //     margin-left: 4%;
         // }
         h1{
-           width: 100%;
-           padding: 0 0 10%;
+           width: 92%;
+           margin-left: 4%;
+           padding: 0 0 5%;
         //    opacity: 0;
            @media (max-width: 599px){
-               width: 92%;
-               margin-left: 4%;
-               padding: 0 0 5%;
            }
         }
         .global {
             width: 80%;
-            margin: 0 auto -40%;
+            margin: 0 auto -55%;
             animation: float 6s ease-in-out infinite;
             @media (max-width: 599px){
                 width: 90%;
@@ -682,22 +683,33 @@ img {
 #intro {
     position: relative;
     z-index: 5;
-    padding-top: 99px;
+    padding-top: 230px;
     padding-left: 15px;
     padding-right: 15px;
-    background: #fff;
-    .gradient_bg {
-        background: linear-gradient(352deg, white 36%, rgba(255, 255, 255, 0.4) 58%, rgba(255, 255, 255, 0) 42%);
-        height: 35vw;
-        max-height: 400px;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transform: translate(0, -99%);
+    margin-top: -380px;
+    background-image: url(../assets/img/bg-01.png);
+    background-size: 1400px;
+    background-position: center top;
+    // .gradient_bg {
+    //     background: linear-gradient(352deg, white 42%, rgba(255, 255, 255, 0.4) 56%, rgba(255, 255, 255, 0) 46%);
+    //     height: 22vw;
+    //     max-height: 320px;
+    //     width: 100%;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     transform: translate(0, -99%);
+    // }
+    @media (min-width: 1400px){
+        background-size: 2280px;
+    }
+    @media (max-width: 599px){
+        margin-top: -25vh;
+        padding-top: 20vh;
+        background-size: 600px;
     }
     .title {
-        margin-top: -80px;
+        display: inline-block;
     }
     p {
         padding: 30px 0 50px;
@@ -710,6 +722,7 @@ img {
         }
         font {
             color: #24509b;
+            font-weight: 500;
         }
     }
 }
@@ -717,7 +730,7 @@ img {
 .section{
     position: relative;
     text-align: center;
-    padding: 40px 0 50px; 
+    padding: 20px 0 40px;
     @media (max-width: 599px){
         padding: 20px 0 30px; 
     }
@@ -773,6 +786,7 @@ img {
         padding: 0 10px;
         position: relative;
         margin-top: 30px;
+        font-weight: 500;
     }
 }
 
@@ -786,7 +800,7 @@ img {
         border-radius: 50%;
     }
     h6{
-        top: 55%;
+        top: 75%;
         width: 100%;
         transform: translate(0 , -50%);
         font{
@@ -827,8 +841,9 @@ img {
     overflow: visible;
     .geo_top {
         right: 0;
-        top: -80px; 
-        width: 40%;
+        top: -70px; 
+        width: 34%;
+        z-index: 50;
         @media (max-width: 599px){
             top: -60px;
             width: 60%;
@@ -1082,6 +1097,14 @@ form {
         width: 100%;
         max-width: 550px;
         margin: 10px auto;
+        transition: all .4s;
+        cursor: pointer;
+        @media (min-width: 769px){
+            &:hover{
+                letter-spacing: 5px;
+                text-indent: 10px;
+            }
+        }
     }
 }
 
@@ -1097,6 +1120,9 @@ input, select {
     font-size: 18px;
     &:focus {
         border: 1px solid #003b8f;
+    }
+    @media (max-width: 599px){
+        width: 100%;
     }
 }
 
@@ -1137,12 +1163,17 @@ input[type='checkbox']:checked {
     margin: 15px auto;
     display: inline-block;
     width: 100%;
+    position: relative;
+    @media (max-width: 599px){
+        margin: 10px auto 5px;
+    }
     p{
         width: 100px;
         display: inline-block;
         text-align: left;
         @media (max-width: 599px){
-            width: 85px;
+            width: 100%;
+            margin-bottom: 5px;
         }
         &:before {
             content: '*';
@@ -1155,6 +1186,23 @@ input[type='checkbox']:checked {
             }
         }
     }
+    .arrow {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 8px 6px 0 6px;
+        border-color: #24509b transparent transparent transparent;
+        position: absolute;
+        right: 15px;
+        top: 28px;
+        transform: translate(-100%, -50%);
+        @media (max-width: 599px){
+            top: 58px;
+            right: 10px;
+
+        }
+    }
+    
 }
 
 
@@ -1172,7 +1220,7 @@ input[type='checkbox']:checked {
     border-radius: 18px;
     line-height: 36px;
     background-blend-mode: screen;
-    background-image: linear-gradient(50deg, #0064c9, #f68084);
+    background-image: linear-gradient(50deg, #24509b, #6cc29d);
     font-weight: 500;
     white-space: nowrap;
 }
