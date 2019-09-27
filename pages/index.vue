@@ -3,39 +3,41 @@
     <Header />
 
     <div id="content">
-        <div id="banner">
+        <div class="hidden W100">
+            <div id="banner">
+                <!-- <img src="@/assets/img/kvbg.jpg" alt=""> -->
+                <div class="kv">
+                    <h1 class="wow flipInX">
+                        <img src="@/assets/img/hl.png" class="pc" alt="新時代人力資源管理策略系列">
+                        <img src="@/assets/img/hl_m.png" class="mb" alt="新時代人力資源管理策略系列">
+                    </h1>
+                    <img src="@/assets/img/ppls.png" class="global">
+                </div>
+            </div>
 
-            <!-- <img src="@/assets/img/kvbg.jpg" alt=""> -->
-            <div class="kv">
-                <h1 class="wow flipInX">
-                    <img src="@/assets/img/hl.png" class="pc" alt="新時代人力資源管理策略系列">
-                    <img src="@/assets/img/hl_m.png" class="mb" alt="新時代人力資源管理策略系列">
-                </h1>
-                <img src="@/assets/img/ppls.png" class="global">
+            <div class="section" id="intro">
+                <!-- <div class="gradient_bg"></div> -->
+                <div class="wow fadeInUp">
+                    <div class="title">
+                        <h4 class="f66 poA">01</h4>
+                        <h3 class="f30">論壇簡介</h3>
+                        <h2 class="f66">INTRODUCTION</h2>
+                    </div>
+                    <div class="W1140">
+                        <h1 class="f30">人力資源X數位轉型X企業接班</h1>
+                        <p class="f18">
+                            21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
+                            臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
+                            勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
+                            期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
+                            共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
+                        </p>
+                    </div>
+                </div>
+                
             </div>
         </div>
-
-        <div class="section" id="intro">
-            <!-- <div class="gradient_bg"></div> -->
-            <div class="wow fadeInUp">
-                <div class="title">
-                    <h4 class="f66 poA">01</h4>
-                    <h3 class="f30">論壇簡介</h3>
-                    <h2 class="f66">INTRODUCTION</h2>
-                </div>
-                <div class="W1140">
-                    <h1 class="f30">人力資源X數位轉型X企業接班</h1>
-                    <p class="f18">
-                        21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
-                        臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
-                        勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
-                        期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
-                        共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
-                    </p>
-                </div>
-            </div>
-            
-      </div>
+        
       <div class="section" id="speaker">
             <img src="@/assets/img/rightimg.png" class="poA geo_top">
             <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
@@ -465,8 +467,10 @@ export default {
                     console.log(response);
                     if(response.status === 200) {
                         this.openPopup('報名成功！');
+                        this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
                     } else if(response.status === 201) {
                         this.openPopup('你已經完成報名，感謝您的參與！');
+                        this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
                     } 
                     else {
                         this.openPopup('表單尚未送出');
@@ -621,15 +625,22 @@ img {
     }
 }
 
+.hidden {
+    overflow: hidden;
+}
+
 #banner{
     position: relative;
     background-image: url(../assets/img/kvbg.jpg);
     background-position: center;
-    background-size: cover;
+    background-size: 1500px;
+    background-position: center top;
     text-align: center;
-    overflow: hidden;
+    @media (min-width: 1400px){
+        background-size: 2280px;
+    }
     @media (max-width: 599px){
-        height: inherit;
+        background-size: 600px;
     }
 
     .kv {
