@@ -1,4 +1,4 @@
-
+  
 export default {
   mode: 'universal',
   /*
@@ -23,7 +23,8 @@ export default {
   ** Global CSS
   */
   css: [
-    'swiper/dist/css/swiper.css'
+    'swiper/dist/css/swiper.css',
+    '~/assets/css/animate.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -65,5 +66,6 @@ export default {
       }
     },
  
-  }
+  },
+
 }

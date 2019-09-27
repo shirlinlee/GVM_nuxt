@@ -4,9 +4,10 @@
 
     <div id="content">
         <div id="banner">
+
             <!-- <img src="@/assets/img/kvbg.jpg" alt=""> -->
             <div class="kv">
-                <h1>
+                <h1 class="wow flipInX">
                     <img src="@/assets/img/hl.png" class="pc" alt="新時代人力資源管理策略系列">
                     <img src="@/assets/img/hl_m.png" class="mb" alt="新時代人力資源管理策略系列">
                 </h1>
@@ -16,34 +17,36 @@
 
         <div class="section" id="intro">
             <div class="gradient_bg"></div>
-            <div class="title">
-                <h4 class="f66 poA">01</h4>
-                <h3 class="f30">論壇簡介</h3>
-                <h2 class="f66">INTRODUCTION</h2>
+            <div class="wow fadeInUp">
+                <div class="title">
+                    <h4 class="f66 poA">01</h4>
+                    <h3 class="f30">論壇簡介</h3>
+                    <h2 class="f66">INTRODUCTION</h2>
+                </div>
+                <div class="W1140">
+                    <h1 class="f30">人力資源X數位轉型X企業接班</h1>
+                    <p class="f18">
+                        21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
+                        臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
+                        勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
+                        期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
+                        共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
+                    </p>
+                </div>
             </div>
-            <div class="W1140">
-                <h1 class="f30">人力資源X數位轉型X企業接班</h1>
-                <p class="f18">
-                    21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
-                    臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
-                    勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
-                    期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
-                    共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
-                </p>
-            </div>
+            
       </div>
       <div class="section" id="speaker">
             <img src="@/assets/img/rightimg.png" class="poA geo_top">
             <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
             <img src="@/assets/img/bg-02.png" class="poA bg W100">
             
-            <div class="W1140 poR" >
+            <div class="W1140 poR wow fadeInUp">
                 <div class="title">
                     <h4 class="f66 poA">01</h4>
                     <h3 class="f30">專題演講者</h3>
                     <h2 class="f66">SPEAKERS</h2>
                 </div>
-            <!-- <no-ssr placeholder="loading..."> -->
                 <div v-swiper:mySwiper="swiperOption" id="person_slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" v-for="(slide, index) in allSpeakers" :key="'speaker_'+index">
@@ -65,7 +68,6 @@
                     </div>
                    
                 </div>
-                <!--</no-ssr> -->
                 <div class="slider_nav">
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -76,7 +78,7 @@
       </div>
 
        <div class="section" id="form">
-            <div class="W1140">
+            <div class="W1140 wow fadeInUp">
                   <div class="title">
                     <h4 class="f66 poA">02</h4>
                     <h3 class="f30">填寫報名</h3>
@@ -129,155 +131,159 @@
       </div>
 
       <div class="section" id="schedual">
-          <div class="title">
-              <h4 class="f66 poA">03</h4>
-              <h3 class="f30">地方論壇議程</h3>
-              <h2 class="f66">SCHEDULE</h2>
-          </div>
-          <div class="schedual_wrapper W1140">
-                <div class="tab">
-                    <div class="location" v-for="(tab, index) in sessions" :key="'tab_'+index" :class="{'active': index === schedualCurrent }" @click="schedualTabHandler(index)">
-                        <h5 class="f30">-{{ tab.name }}-</h5>
-                        <h6 class="f48">{{ tab.time }}</h6>
-                    </div>
+            <div class="wow fadeInUp">
+                <div class="title">
+                    <h4 class="f66 poA">03</h4>
+                    <h3 class="f30">地方論壇議程</h3>
+                    <h2 class="f66">SCHEDULE</h2>
                 </div>
-              
-                <div class="eventsList f24" v-show="schedualCurrent===0">
-                    <div class="event">
-                        <p class="time">13:30 – 14:00</p>
-                        <p class="dot"></p>
-                        <div class="subject">與會人員/貴賓報到</div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">13:30 – 14:00</p>
-                        <p class="dot"></p>
-                        <div class="subject">活動開場/長官致詞</div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">14:05 – 14:35</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">專題演講一</h2>
-                            <span class="f_blue">
-                                新科技帶來新企業，<br>
-                                未來人才你挑對了嗎?
-                            </span>
+                <div class="schedual_wrapper W1140">
+                    <div class="tab">
+                        <div class="location" v-for="(tab, index) in sessions" :key="'tab_'+index" :class="{'active': index === schedualCurrent }" @click="schedualTabHandler(index)">
+                            <h5 class="f30">-{{ tab.name }}-</h5>
+                            <h6 class="f48">{{ tab.time }}</h6>
                         </div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">14:35 – 15:05</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">專題演講二</h2>
-                            <span class="f_blue">
-                                隊員變教練──迎向數位轉型，
-                                人資要比老闆清楚的那件事
-                            </span>
-                        </div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">15:05 – 16:25</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
-                            <span class="f_blue">
-                                智慧浪潮來襲，
-                                HR如何領軍站上浪頭
-                            </span>
-                        </div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">16:25 – 16:30</p>
-                        <p class="dot"></p>
-                        <div class="subject">大合影</div>
-
-                    </div>
-                    <div class="event">
-                        <p class="time">16:30 – </p>
-                        <p class="dot"></p>
-                        <div class="subject">散場/發放餐盒</div>
-
                     </div>
                 
-                </div>
+                    <div class="eventsList f24" v-show="schedualCurrent===0">
+                        <div class="event">
+                            <p class="time">13:30 – 14:00</p>
+                            <p class="dot"></p>
+                            <div class="subject">與會人員/貴賓報到</div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">13:30 – 14:00</p>
+                            <p class="dot"></p>
+                            <div class="subject">活動開場/長官致詞</div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">14:05 – 14:35</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">專題演講一</h2>
+                                <span class="f_blue">
+                                    新科技帶來新企業，<br>
+                                    未來人才你挑對了嗎?
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">14:35 – 15:05</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">專題演講二</h2>
+                                <span class="f_blue">
+                                    隊員變教練──迎向數位轉型，
+                                    人資要比老闆清楚的那件事
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">15:05 – 16:25</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
+                                <span class="f_blue">
+                                    智慧浪潮來襲，
+                                    HR如何領軍站上浪頭
+                                </span>
+                            </div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">16:25 – 16:30</p>
+                            <p class="dot"></p>
+                            <div class="subject">大合影</div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">16:30 – </p>
+                            <p class="dot"></p>
+                            <div class="subject">散場/發放餐盒</div>
+
+                        </div>
                     
-                <div class="eventsList f24" v-show="schedualCurrent===1">
-                    <div class="event">
-                        <p class="time">13:30 – 14:00</p>
-                        <p class="dot"></p>
-                        <div class="subject">與會人員/貴賓報到</div>
-
                     </div>
-                    <div class="event">
-                        <p class="time">13:30 – 14:00</p>
-                        <p class="dot"></p>
-                        <div class="subject">活動開場/長官致詞</div>
+                        
+                    <div class="eventsList f24" v-show="schedualCurrent===1">
+                        <div class="event">
+                            <p class="time">13:30 – 14:00</p>
+                            <p class="dot"></p>
+                            <div class="subject">與會人員/貴賓報到</div>
 
-                    </div>
-                    <div class="event">
-                        <p class="time">14:05 – 14:35</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">專題演講一</h2>
-                            <span class="f_blue">
-                                跟對老闆不如幫對老闆-<br />
-                                二代接班的 HR角色怎麼演?
-                            </span>
                         </div>
+                        <div class="event">
+                            <p class="time">13:30 – 14:00</p>
+                            <p class="dot"></p>
+                            <div class="subject">活動開場/長官致詞</div>
 
-                    </div>
-                    <div class="event">
-                        <p class="time">14:35 – 15:05</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">專題演講二</h2>
-                            <span class="f_blue">
-                                老將or新兵?用對的都是好兵! <br />
-                                ──HR的跨世代用人哲學
-                            </span>
                         </div>
+                        <div class="event">
+                            <p class="time">14:05 – 14:35</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">專題演講一</h2>
+                                <span class="f_blue">
+                                    跟對老闆不如幫對老闆-<br />
+                                    二代接班的 HR角色怎麼演?
+                                </span>
+                            </div>
 
-                    </div>
-                    <div class="event">
-                        <p class="time">15:05 – 16:25</p>
-                        <p class="dot"></p>
-                        <div class="subject">
-                            <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
-                            <span class="f_blue">
-                                輔佐繼承者們HR成功秘笈
-                            </span>
                         </div>
+                        <div class="event">
+                            <p class="time">14:35 – 15:05</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">專題演講二</h2>
+                                <span class="f_blue">
+                                    老將or新兵?用對的都是好兵! <br />
+                                    ──HR的跨世代用人哲學
+                                </span>
+                            </div>
 
-                    </div>
-                    <div class="event">
-                        <p class="time">16:25 – 16:30</p>
-                        <p class="dot"></p>
-                        <div class="subject">大合影</div>
+                        </div>
+                        <div class="event">
+                            <p class="time">15:05 – 16:25</p>
+                            <p class="dot"></p>
+                            <div class="subject">
+                                <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
+                                <span class="f_blue">
+                                    輔佐繼承者們HR成功秘笈
+                                </span>
+                            </div>
 
+                        </div>
+                        <div class="event">
+                            <p class="time">16:25 – 16:30</p>
+                            <p class="dot"></p>
+                            <div class="subject">大合影</div>
+
+                        </div>
+                        <div class="event">
+                            <p class="time">16:30 – </p>
+                            <p class="dot"></p>
+                            <div class="subject">散場/發放餐盒</div>
+                        </div>
+                        
                     </div>
-                    <div class="event">
-                        <p class="time">16:30 – </p>
-                        <p class="dot"></p>
-                        <div class="subject">散場/發放餐盒</div>
-                    </div>
-                    
                 </div>
+            
             </div>
-      </div>
+        </div>
 
      
-      <div class="section" id="location">
-          <div class="title">
-              <h4 class="f66 poA">04</h4>
-              <h3 class="f30">場地資訊</h3>
-              <h2 class="f66">&nbsp;PLACE&nbsp;</h2>
-          </div>
-          <div class="google_map W1140">
+      <div class="section wow fadeInUp" id="location">
+        <div class="wow fadeInUp">
+            <div class="title">
+                <h4 class="f66 poA">04</h4>
+                <h3 class="f30">場地資訊</h3>
+                <h2 class="f66">&nbsp;PLACE&nbsp;</h2>
+            </div>
+            <div class="google_map W1140">
                 <!-- <img src="" alt=""> -->
                 <div class="tab">
                     <div class="location" v-for="(tab, index) in sessions" :key="'session_'+index" :class="{'active': index === locationCurrent }" @click="locationTabHandler(index)">
@@ -293,10 +299,10 @@
                 <div class="map_imgs">
                     <img src="@/assets/img/map_01.jpg" v-show="locationCurrent===0" />
                     <img src="@/assets/img/map_02.jpg" v-show="locationCurrent===1" />
-
                 </div>
-              
           </div>
+        </div>
+          
       </div>
         
     </div>
@@ -312,6 +318,10 @@ import qs from 'qs';
 import Header from '~/components/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Popup from '~/components/Popup.vue';
+
+if (process.browser) { // 在这里根据环境引入wow.js
+    var {WOW} = require('wowjs')
+}
 
 export default {
     data () {
@@ -393,6 +403,12 @@ export default {
         Popup,
     },
     mounted() {
+        if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
+             new WOW({
+                live: false, 
+                offset: 0,
+             }).init()
+        } 
        
     },
     methods: {
@@ -444,10 +460,13 @@ export default {
             axios
                 .post('http://35.185.161.185:9000/api/postAttendee.php', qs.stringify(this.formObj))
                 .then(response => {
-                    console.log(response.data);
+                    console.log(response);
                     if(response.status === 200) {
                         this.openPopup('報名成功！');
-                    } else {
+                    } else if(response.status === 201) {
+                        this.openPopup('你已經完成報名，感謝您的參與！');
+                    } 
+                    else {
                         this.openPopup('表單尚未送出');
                     }
                 } )
@@ -626,6 +645,7 @@ img {
         h1{
            width: 100%;
            padding: 0 0 10%;
+        //    opacity: 0;
            @media (max-width: 599px){
                width: 92%;
                margin-left: 4%;
@@ -634,15 +654,29 @@ img {
         }
         .global {
             width: 80%;
-            margin: 0 auto -50%;
+            margin: 0 auto -40%;
+            animation: float 6s ease-in-out infinite;
             @media (max-width: 599px){
                 width: 90%;
                 position: relative;
             }
+           
         }   
     }
 
     
+}
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-15px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }
 
 #intro {
@@ -784,7 +818,7 @@ img {
     }
 }
 
- #form {
+ #schedual {
      margin-bottom: 60px;
  }
 
