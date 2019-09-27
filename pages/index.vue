@@ -337,14 +337,25 @@ export default {
                 }
             }
         },
+        submitClicked: false,
+        // formObj: {
+        //     name:'李芷儀',
+        //     phone:'0978036006',
+        //     email:'hn85412404@gmail.com',
+        //     session:'台中場',
+        //     dept:'ABC',
+        //     job:'設計師',
+        //     rocid: 'A226498914',
+        //     event: '108管理策略論壇',
+        // },
         formObj: {
-            name:'李芷儀',
-            phone:'0978036006',
-            email:'hn85412404@gmail.com',
-            session:'台中場',
-            dept:'ABC',
-            job:'設計師',
-            rocid: 'A226498914',
+            name:'',
+            phone:'',
+            email:'',
+            session:'',
+            dept:'',
+            job:'',
+            rocid: '',
             event: '108管理策略論壇',
         },
         agreement: true, 
@@ -357,7 +368,8 @@ export default {
             {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '##跟對老闆不如幫對老闆 ── 二代接班的HR角色怎麼演?'},
             {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵! ── HR的跨世代用人哲學'},
             {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
-        ]
+        ],
+
       }
     },
     computed: {
@@ -371,7 +383,7 @@ export default {
         },
         validateId() {
             var idRegex=/^[a-z](1|2)\d{8}$/i; 
-            return (this.formObj.id.match(idRegex)) ? true : false
+            return (this.formObj.rocid.match(idRegex)) ? true : false
         }
         
     },
@@ -397,25 +409,51 @@ export default {
             this.locationCurrent = index;
         },
         onSubmit(e) {
-            // let formData = JSON.stringify(this.formObj);
-            // console.log(formData);
-            console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',this.validateId);
             e.preventDefault();
+
+            if( this.submitClicked ) {
+                return false;
+            }
+
+            this.submitClicked = true;
             
+            console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',);
+            
+            if(this.validatePhone && this.validateMail) {
+                if (this.formObj.rocid ) {
+                    if(this.validateId) {
+                        this.validatePass();
+                    } else {
+                        this.openPopup('表單資料有誤，請檢查欄位格式');
+                    }
+
+                } else {
+                    this.validatePass();
+                }
+            } else {
+                this.openPopup('表單資料有誤，請檢查欄位格式');
+            }
+
+        },
+        openPopup(txt) {
+            this.isPopupOpen = true;
+            this.popupMsg = txt;
+            this.submitClicked = false;
+        },
+        validatePass() {
             axios
                 .post('http://35.185.161.185:9000/api/postAttendee.php', qs.stringify(this.formObj))
                 .then(response => {
                     console.log(response.data);
                     if(response.status === 200) {
-                        this.isPopupOpen = true;
-                        this.popupMsg = '報名成功！';
+                        this.openPopup('報名成功！');
                     } else {
-                        // alert('表單尚未送出')
+                        this.openPopup('表單尚未送出');
                     }
                 } )
                 .catch( error =>  console.log(error) );
-            
 
+            this.submitClicked = false;
         }
         
     },
@@ -566,8 +604,8 @@ img {
     background-image: url(../assets/img/kvbg.jpg);
     background-position: center;
     background-size: cover;
-    height: 70vw;
-    min-height: 500px;
+    text-align: center;
+  
     @media (max-width: 599px){
         height: inherit;
     }
@@ -576,26 +614,22 @@ img {
         width: 92%;
         max-width: 850px;
         display: inline-block;
-        margin: 0 auto;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        top: 50%;
-        left: 50%;
+        margin: 110px auto 0;
+        position: relative;
         text-align: center;
-        @media (max-width: 599px){
-            position: relative;
-            transform: translate(0, 0);
-            top: 0;
-            left: 0;
-            margin-left: 4%;
-        }
+        // @media (max-width: 599px){
+        //     transform: translate(0, 0);
+        //     top: 0;
+        //     left: 0;
+        //     margin-left: 4%;
+        // }
         h1{
            width: 100%;
            padding: 0 0 10%;
            @media (max-width: 599px){
                width: 92%;
                margin-left: 4%;
-               padding: 80px 0 5%;
+               padding: 0 0 5%;
            }
         }
         .global {
@@ -619,13 +653,14 @@ img {
     padding-right: 15px;
     background: #fff;
     .gradient_bg {
-        background: linear-gradient(352deg, rgba(255,255,255,1) 26%, rgba(255,255,255,0.4) 54%, rgba(255,255,255,0) 54%);
+        background: linear-gradient(352deg, white 36%, rgba(255, 255, 255, 0.4) 58%, rgba(255, 255, 255, 0) 42%);
         height: 35vw;
+        max-height: 400px;
         width: 100%;
         position: absolute;
         top: 0;
         left: 0;
-        transform: translate(0, -100%);
+        transform: translate(0, -99%);
     }
     .title {
         margin-top: -80px;
@@ -749,6 +784,10 @@ img {
     }
 }
 
+ #form {
+     margin-bottom: 60px;
+ }
+
 #speaker {
     z-index: 5;
     overflow: visible;
@@ -784,10 +823,6 @@ img {
     }
 }
 
-#location {
-    padding-top: 70px;
-
-}
 
 #form .W1140{
     z-index: 40;

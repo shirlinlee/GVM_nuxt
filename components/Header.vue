@@ -40,10 +40,10 @@
       },
       scrollHandler(dom) {
         this.isNavOpen = false;
-        this.$body.animate({scrollTop: $(dom).offset().top - 80 });
+        this.$body.animate({scrollTop: $(dom).offset().top - 60 });
       },
       deviceTop() {
-          if ($(window).scrollTop() >= window.innerHeight ) {
+          if ($(window).scrollTop() >= 90 ) {
             this.showFixBar = true;
           } else {
             this.showFixBar = false;

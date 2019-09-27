@@ -33,6 +33,9 @@ export default {
       src: '~/plugins/vue-swiper.js',
       ssr: false
     },
+    { src: '~plugins/media.js', 
+      ssr: false
+    }
   ],
   /*
   ** Nuxt.js dev-modules
