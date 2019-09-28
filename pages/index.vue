@@ -49,6 +49,7 @@
                     <h3 class="f30">專題演講者</h3>
                     <h2 class="f66">SPEAKERS</h2>
                 </div>
+                <client-only>
                 <div v-swiper:mySwiper="swiperOption" id="person_slider">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide" v-for="(slide, index) in allSpeakers" :key="'speaker_'+index">
@@ -65,11 +66,9 @@
                                 {{ slide.hashtag }}
                             </h4>
                         </div>
-                     
-                        
                     </div>
-                   
                 </div>
+                </client-only>
                 <div class="slider_nav">
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -90,6 +89,7 @@
                     <div class="tr t_right f_red">
                         *為必填項目
                     </div>
+                    
                     <div class="tr">
                         <p>姓名</p>
                         <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
@@ -362,6 +362,7 @@ export default {
         //     rocid: 'A226498914',
         //     event: '108管理策略論壇',
         // },
+        test: '123',
         formObj: {
             name:'',
             phone:'',
@@ -489,7 +490,6 @@ export default {
 <style lang="scss">
 
 * {
-    user-select: none; 
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0); 
     outline:none 
 }
@@ -498,6 +498,7 @@ body, html {
     font-family: 'Noto Sans TC', sans-serif;
     width: 100%;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 h1,h2, h3, h4, h5, h6, p, span {
@@ -1122,7 +1123,9 @@ form {
 
 input, select {
     -webkit-appearance: none;
+    -moz-appearance:none;
     line-height: 52px;
+    height: 52px;
     background-color: #f1f1f1;
     border: 1px solid #9d9d9d;
     width: calc(100% - 107px);

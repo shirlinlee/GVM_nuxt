@@ -28,6 +28,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~/assets/css/reset.css',
     'swiper/dist/css/swiper.css',
     '~/assets/css/animate.css'
   ],
