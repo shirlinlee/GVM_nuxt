@@ -95,8 +95,8 @@
                         <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
                     </div>
                     <div class="tr">
-                        <p>電話</p>
-                        <input type="number" name="phone" maxlength="10" v-model="formObj.phone" required="required">
+                        <p>手機</p>
+                        <input type="number" name="phone" maxlength="10" v-model="formObj.phone" placeholder="0912345678" required="required">
                     </div>
                     <div class="tr">
                         <p>e-mail</p>
@@ -438,7 +438,7 @@ export default {
 
             this.submitClicked = true;
             
-            console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',);
+            // console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',);
             
             if(this.validatePhone && this.validateMail) {
                 if (this.formObj.rocid ) {
@@ -468,21 +468,29 @@ export default {
                     console.log(response);
                     if(response.status === 200) {
                         this.openPopup('報名成功！');
-                        this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
-                    } else if(response.status === 201) {
-                        this.openPopup('你已經完成報名，感謝您的參與！');
-                        this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
-                    } 
-                    else {
+                        this.clearForm();
+                    } else {
                         this.openPopup('表單尚未送出');
                     }
                 } )
-                .catch( error =>  console.log(error) );
+                .catch( error =>  {
+                    console.log(error.response.status)
+                    if(error.response.status === 409) {
+                        this.openPopup('你已經完成報名，感謝您的參與！');
+                        this.clearForm();
+                    } else {
+                        this.openPopup('表單尚未送出');
+                    }
+
+                });
 
             this.submitClicked = false;
+        },
+        clearForm() {
+            this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
         }
-        
     },
+    
 
 }
 </script>
@@ -628,12 +636,17 @@ img {
 
 .hidden {
     overflow: hidden;
+    // background-image: url(../assets/img/kvbg.jpg);
+    // background-position: center;
+    // background-size: cover;
+    // background-position: center top;
+   
 }
 
 #banner{
     position: relative;
     background-image: url(../assets/img/kvbg.jpg);
-    background-position: center;
+    background-position: 50% 20%;;
     background-size: 1500px;
     background-position: center top;
     text-align: center;
@@ -641,7 +654,7 @@ img {
         background-size: 2280px;
     }
     @media (max-width: 599px){
-        background-size: 600px;
+        background-size: 900px;
     }
 
     .kv {
@@ -666,7 +679,7 @@ img {
            }
         }
         .global {
-            width: 80%;
+            width: 90%;
             margin: 0 auto -55%;
             animation: float 6s ease-in-out infinite;
             @media (max-width: 599px){
@@ -899,7 +912,7 @@ img {
     width: 340px;
     margin-top: 35px;
     vertical-align: top;
-    @media (max-width: 599px){
+    @media (max-width: 768px){
         width: 88%;
         margin-top: 0;
     }
@@ -913,7 +926,7 @@ img {
         line-height: 1.2;
         margin-bottom: 80px;
         opacity: .3;
-        @media (max-width: 599px){
+        @media (max-width: 768px){
             width: 50%;
             float: left;
             margin-bottom: 30px;
@@ -935,7 +948,7 @@ img {
             margin-top: 30px;
             display: none;
             margin-bottom: -40px;
-            @media (max-width: 599px){
+            @media (max-width: 768px){
                 padding: 25px 20px;
                 width: 200%;
                 margin-top: 40px;
@@ -972,10 +985,13 @@ img {
                 right: 10%;
                 top: 48px;
                 transform: translate(-100%, -50%);
-                @media (max-width: 599px){
+                @media (max-width: 768px){
                     right: 52%;
-                    top: 70px;
+                    top: 100px;
                     transform: translate(100%, 0) rotate(90deg);
+                }
+                @media (max-width: 559px){
+                    top: 70px;
                 }
             }
             .bg_grey {
@@ -990,7 +1006,7 @@ img {
     width: calc(100% - 340px - 30px);
     margin-left: 25px;
     margin-bottom: 50px;
-    @media (max-width: 599px){
+    @media (max-width: 768px){
         width: 100%;
         margin: 40px auto 20px;
     }
@@ -1004,7 +1020,7 @@ img {
     *{
         vertical-align: top;
     }
-    @media (max-width: 599px){
+    @media (max-width: 768px){
         width: 100%;
     }
 }
@@ -1035,7 +1051,7 @@ img {
     font-family: 'Oswald', sans-serif;
     display: inline-block;
     @media (max-width: 599px){
-        width: 95px;
+        width: 98px;
     }
 }
 
@@ -1047,7 +1063,7 @@ img {
     background-color: #003b8f;
     margin: 9px 30px;
     @media (max-width: 599px){
-        margin: 5px 15px;
+        margin: 5px 12px;
         width: 14px;
         height: 14px;
     }
@@ -1072,7 +1088,7 @@ img {
     text-align: left;
     line-height: 1.25;
     @media (max-width: 599px){
-        width: calc(100% - 160px);
+        width: calc(100% - 164px);
     }
     span{
         padding-top: 10px;
@@ -1124,7 +1140,7 @@ form {
 input, select {
     -webkit-appearance: none;
     -moz-appearance:none;
-    line-height: 52px;
+    // line-height: 52px;
     height: 52px;
     background-color: #f1f1f1;
     border: 1px solid #9d9d9d;
@@ -1132,6 +1148,7 @@ input, select {
     padding: 0 10px;
     border-radius: 3px;
     font-size: 18px;
+    vertical-align: middle;
     &:focus {
         border: 1px solid #003b8f;
     }
