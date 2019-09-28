@@ -96,7 +96,7 @@
                     </div>
                     <div class="tr">
                         <p>手機</p>
-                        <input type="number" name="phone" maxlength="10" v-model="formObj.phone" placeholder="0912345678" required="required">
+                        <input type="tel" name="phone" maxlength="10" v-model="formObj.phone" placeholder="0912345678" required="required">
                     </div>
                     <div class="tr">
                         <p>e-mail</p>
@@ -373,7 +373,7 @@ export default {
             rocid: '',
             event: '108管理策略論壇',
         },
-        agreement: true, 
+        agreement: false, 
         isPopupOpen: false,
         popupMsg: '',
         allSpeakers: [
@@ -846,7 +846,7 @@ img {
 
 
 #schedual, #form {
-    background-color: #f1f1f1;
+    background-color: #ffffff;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -858,7 +858,8 @@ img {
 }
 
  #schedual {
-     margin-bottom: 60px;
+    margin-bottom: 60px;
+    // background-color: #ffffff;
  }
 
 #speaker {
@@ -1155,6 +1156,18 @@ input, select {
     @media (max-width: 599px){
         width: 100%;
     }
+}
+
+::-webkit-input-placeholder { /* Edge */
+  color: #cbcbcb;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #cbcbcb;
+}
+
+::placeholder {
+  color: #cbcbcb;
 }
 
 

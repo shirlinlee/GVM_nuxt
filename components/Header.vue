@@ -71,6 +71,13 @@
     color: #fff;
     font-weight: bold; 
     padding: 0 30px;
+    cursor: pointer;
+    transition: all .4s;
+    @media (min-width: 769px){
+      &:hover{
+        color: #ffc62c;
+      }
+    }
     
   }
   ul {
