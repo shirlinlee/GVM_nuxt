@@ -220,7 +220,7 @@
 
                         </div>
                         <div class="event">
-                            <p class="time">13:30 – 14:00</p>
+                            <p class="time">14:00 – 14:05</p>
                             <p class="dot"></p>
                             <div class="subject">活動開場/長官致詞</div>
 
@@ -862,8 +862,6 @@ img {
 }
 
  #schedual {
-    margin-bottom: 60px;
-    // background-color: #ffffff;
  }
 
 #speaker {

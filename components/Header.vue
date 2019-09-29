@@ -41,7 +41,7 @@
       },
       scrollHandler(dom) {
         this.isNavOpen = false;
-        this.$body.animate({scrollTop: $(dom).offset().top - 70 });
+        this.$body.animate({scrollTop: (dom === '#intro')? $(dom).offset().top - 220 : $(dom).offset().top - 70 });
       },
       deviceTop() {
           if ($(window).scrollTop() >= 90 ) {
