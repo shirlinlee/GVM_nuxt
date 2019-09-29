@@ -4,9 +4,9 @@ export default {
   /*
   ** Headers of the page
   */
-  // router: {
-  //   base: '/GVM_dist/'
-  // },
+  router: {
+    base: '/GVM_dist/'
+  },
   head: {
     title: process.env.npm_package_name || '',
     meta: [

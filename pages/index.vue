@@ -16,7 +16,7 @@
             </div>
 
             <div class="section" id="intro">
-                <!-- <div class="gradient_bg"></div> -->
+                <div class="gradient_bg"></div>
                 <div class="wow fadeInUp">
                     <div class="title">
                         <h4 class="f66 poA">01</h4>
@@ -46,7 +46,7 @@
             <div class="W1140 poR wow fadeInUp" style="z-index: 20;">
                 <div class="title">
                     <h4 class="f66 poA">02</h4>
-                    <h3 class="f30">專題演講者</h3>
+                    <h3 class="f30">講者簡介</h3>
                     <h2 class="f66">SPEAKERS</h2>
                 </div>
                 <client-only>
@@ -82,7 +82,7 @@
             <div class="W1140 wow fadeInUp">
                   <div class="title">
                     <h4 class="f66 poA">03</h4>
-                    <h3 class="f30">填寫報名</h3>
+                    <h3 class="f30">立即報名</h3>
                     <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
                 </div>
                 <form @submit="onSubmit" method="post" class="f18" >
@@ -156,7 +156,7 @@
 
                         </div>
                         <div class="event">
-                            <p class="time">13:30 – 14:00</p>
+                            <p class="time">14:00 – 14:05</p>
                             <p class="dot"></p>
                             <div class="subject">活動開場/長官致詞</div>
 
@@ -332,7 +332,7 @@ export default {
         carouselCurrent: 0,
         schedualCurrent: 0,
         locationCurrent: 0,
-        sessions: [{time: '10/14', name: '台中場', location: '台中市407西屯區科園路19號', place: '中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '50544彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學院國際會議廳'}],
+        sessions: [{time: '11/6', name: '台中場', location: '台中市407西屯區科園路19號', place: '中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '50544彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學院國際會議廳'}],
         swiperOption: {
             loop: true,
             slidesPerView: 3,
@@ -392,10 +392,10 @@ export default {
             var mobileReg = /^(09)[0-9]{8}$/;
             return (this.formObj.phone.match(mobileReg)) ? true : false
         },
-        validateMail() {
-            var mailRegex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-            return (this.formObj.email.match(mailRegex)) ? true : false
-        },
+        // validateMail() {
+        //     var mailRegex = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+        //     return (this.formObj.email.match(mailRegex)) ? true : false
+        // },
         validateId() {
             var idRegex=/^[a-z](1|2)\d{8}$/i; 
             return (this.formObj.rocid.match(idRegex)) ? true : false
@@ -440,7 +440,7 @@ export default {
             
             // console.log('phone:',this.validatePhone, 'mail:',this.validateMail, 'id:',);
             
-            if(this.validatePhone && this.validateMail) {
+            if(this.validatePhone) {
                 if (this.formObj.rocid ) {
                     if(this.validateId) {
                         this.validatePass();
@@ -650,6 +650,7 @@ img {
     background-size: 1500px;
     background-position: center top;
     text-align: center;
+    overflow: hidden;
     @media (min-width: 1400px){
         background-size: 2280px;
     }
@@ -680,11 +681,12 @@ img {
         }
         .global {
             width: 90%;
-            margin: 0 auto -55%;
+            margin: 0 auto -60%;
             animation: float 6s ease-in-out infinite;
             @media (max-width: 599px){
                 width: 90%;
                 position: relative;
+                margin-bottom: -33%;
             }
            
         }   
@@ -708,30 +710,32 @@ img {
 #intro {
     position: relative;
     z-index: 5;
-    padding-top: 230px;
     padding-left: 15px;
     padding-right: 15px;
-    margin-top: -380px;
-    background-image: url(../assets/img/bg-01.png);
-    background-size: 1400px;
-    background-position: center top;
-    // .gradient_bg {
-    //     background: linear-gradient(352deg, white 42%, rgba(255, 255, 255, 0.4) 56%, rgba(255, 255, 255, 0) 46%);
-    //     height: 22vw;
-    //     max-height: 320px;
-    //     width: 100%;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     transform: translate(0, -99%);
-    // }
+    // background-image: url(../assets/img/bg-01.png);
+    // background-size: 1400px;
+    // background-position: center top;
+    .gradient_bg {
+        background: linear-gradient(352deg, white 38%, rgba(255, 255, 255, 0.4) 58%, rgba(255, 255, 255, 0) 56%);
+        height: 350px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(0, -350px);
+    }
+    >.wow {
+        margin-top: -150px;
+        position: relative;
+        z-index: 30;
+    }
     @media (min-width: 1400px){
         background-size: 2280px;
     }
     @media (max-width: 599px){
-        margin-top: -25vh;
-        padding-top: 20vh;
-        background-size: 600px;
+        // margin-top: -25vh;
+        // padding-top: 20vh;
+        // background-size: 600px;
     }
     .title {
         display: inline-block;
@@ -1028,7 +1032,7 @@ img {
 
 .event {
     width: 100%;
-    padding: 35px 40px;
+    padding: 35px;
     border-bottom: 1px solid #9b9b9b;
     position: relative;
     text-align: left;
@@ -1047,7 +1051,7 @@ img {
 }
 
 .time {
-    width: 130px;
+    width: 133px;
     text-align: left;
     font-family: 'Oswald', sans-serif;
     display: inline-block;
@@ -1074,7 +1078,7 @@ img {
         position: absolute;
         width: 1px;
         top: 65px;
-        left: 217px;
+        left: 214px;
         border-right: 1px dashed #9b9b9b;
         @media (max-width: 599px){
             left: 136px;
@@ -1085,7 +1089,7 @@ img {
 
 .subject {
     display: inline-block;
-    width: calc(100% - 225px);
+    width: calc(100% - 228px);
     text-align: left;
     line-height: 1.25;
     @media (max-width: 599px){
