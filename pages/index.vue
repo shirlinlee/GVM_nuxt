@@ -106,6 +106,7 @@
                         <p>場次</p>
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option value="台中場">台中場</option>
+                            <!-- //FIXME: 彰化場 -->
                             <option value="彰化場">彰化場</option>
                         </select>
                         <i class="arrow"></i>
@@ -322,7 +323,7 @@ import Header from '~/components/Header.vue';
 import Footer from '~/components/Footer.vue';
 import Popup from '~/components/Popup.vue';
 
-if (process.browser) { // 在这里根据环境引入wow.js
+if (process.browser) { 
     var {WOW} = require('wowjs')
 }
 
@@ -377,6 +378,7 @@ export default {
         isPopupOpen: false,
         popupMsg: '',
         allSpeakers: [
+            //FIXME: 彰化場
             {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-1.jpg'), title: 'MAYO創辦人暨執行長', subject:'專題演講一', hashtag: '#新科技帶來新企業，未來人才你挑對了嗎?'},
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#從隊員變教練 ── 迎向數位轉型，人資要比老闆清楚的那件事'},
             {session: '台中場', name:'孫弘岳', photo: require('@/assets/img/speaker-3.jpg'), title: '國立臺灣師範大學科技應用與<br />人力資源發展學系助理教授', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，HR如何領軍站上浪頭'},
@@ -423,10 +425,14 @@ export default {
         popupHandler(el) {
             this.isPopupOpen = el.close;
         },
+        //FIXME: 彰化場
         schedualTabHandler(index) {
+            // return false;
             this.schedualCurrent = index;
         },
+        //FIXME: 彰化場
         locationTabHandler(index) {
+            // return false;
             this.locationCurrent = index;
         },
         onSubmit(e) {
@@ -924,6 +930,7 @@ img {
     }
     .location {
         position: relative;
+        //FIXME: 彰化場
         cursor: pointer;
         width: 100%;
         line-height: 1.2;
@@ -941,6 +948,20 @@ img {
             display: block;
             font-family: 'Oswald', sans-serif;
         }
+        //FIXME: 彰化場
+        // &:nth-child(2) {
+        //     h6:after {
+        //         content: '(敬請期待)';
+        //         display: block;
+        //         font-family: 'Noto Sans TC', sans-serif;
+        //         font-size: 20px;
+        //         letter-spacing: 1px;
+        //         @media (max-width: 599px){
+        //             font-size: 16px;
+        //         }
+        //     }
+        // }
+        //FIXME: 彰化場
         &:hover {
             opacity: .6;
         }
@@ -957,7 +978,6 @@ img {
                 margin-top: 40px;
                 &.bg_grey_1 {
                     margin-left: -100%;
-
                 }
             }
             .pin {
