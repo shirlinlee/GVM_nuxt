@@ -21,7 +21,7 @@
         <br>
        
         <p class="f14"><br>Copyright© 1999~2019遠見天下文化出版股份有限公司. All rights reserved.</p>
-        <p class="f14">讀者服務電話：(02)26620012 時間：週一至週五9:00～12:30；13:30～17:00 服務信箱：gvm@cwgw.com.tw</p>
+        <p class="f14">聯絡人：遠見雜誌 張小姐 02-2517 3688 #861 alice910311@cwgv.com.tw</p>
     </div>
 </template>
 <script>

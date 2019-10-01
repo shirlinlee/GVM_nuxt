@@ -63,7 +63,7 @@
                             </div>
                             <h4 class="f_grey f18">
                                 <h5 class="f18 poA">{{ slide.subject }}</h5>
-                                {{ slide.hashtag }}
+                                <font v-html="slide.hashtag"></font>
                             </h4>
                         </div>
                     </div>
@@ -107,7 +107,7 @@
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option value="台中場">台中場</option>
                             <!-- //FIXME: 彰化場 -->
-                            <option value="彰化場">彰化場</option>
+                            <!-- <option value="彰化場">彰化場</option> -->
                         </select>
                         <i class="arrow"></i>
                     </div>
@@ -122,6 +122,7 @@
                     <div class="tr">
                         <p class="optional">身分證字號</p>
                         <input type="text" name="rocid" v-model="formObj.rocid">
+                        <font class="f15 f_grey">(須申請公務人員學習時數者提供)</font>
                     </div>
                     <div class="tr t_left">
                         <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
@@ -153,13 +154,13 @@
                         <div class="event">
                             <p class="time">13:30 – 14:00</p>
                             <p class="dot"></p>
-                            <div class="subject">與會人員/貴賓報到</div>
+                            <div class="subject">報到</div>
 
                         </div>
                         <div class="event">
                             <p class="time">14:00 – 14:05</p>
                             <p class="dot"></p>
-                            <div class="subject">活動開場/長官致詞</div>
+                            <div class="subject">活動開場</div>
 
                         </div>
                         <div class="event">
@@ -180,7 +181,7 @@
                             <div class="subject">
                                 <h2 class="f18 f_white">專題演講二</h2>
                                 <span class="f_blue">
-                                    隊員變教練──迎向數位轉型，
+                                    迎向數位轉型，<br>
                                     人資要比老闆清楚的那件事
                                 </span>
                             </div>
@@ -192,24 +193,19 @@
                             <div class="subject">
                                 <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
                                 <span class="f_blue">
-                                    智慧浪潮來襲，
+                                    智慧浪潮來襲，<br>
                                     HR如何領軍站上浪頭
                                 </span>
                             </div>
 
                         </div>
                         <div class="event">
-                            <p class="time">16:25 – 16:30</p>
+                            <p class="time">16:25 –</p>
                             <p class="dot"></p>
-                            <div class="subject">大合影</div>
+                            <div class="subject">散場</div>
 
                         </div>
-                        <div class="event">
-                            <p class="time">16:30 – </p>
-                            <p class="dot"></p>
-                            <div class="subject">散場/發放餐盒</div>
-
-                        </div>
+                        
                     
                     </div>
                         
@@ -217,13 +213,13 @@
                         <div class="event">
                             <p class="time">13:30 – 14:00</p>
                             <p class="dot"></p>
-                            <div class="subject">與會人員/貴賓報到</div>
+                            <div class="subject">報到</div>
 
                         </div>
                         <div class="event">
                             <p class="time">14:00 – 14:05</p>
                             <p class="dot"></p>
-                            <div class="subject">活動開場/長官致詞</div>
+                            <div class="subject">活動開場</div>
 
                         </div>
                         <div class="event">
@@ -232,8 +228,8 @@
                             <div class="subject">
                                 <h2 class="f18 f_white">專題演講一</h2>
                                 <span class="f_blue">
-                                    跟對老闆不如幫對老闆-<br />
-                                    二代接班的 HR角色怎麼演?
+                                    跟對老闆不如幫對老闆<br />
+                                    ── 二代接班的HR角色怎麼演?
                                 </span>
                             </div>
 
@@ -245,7 +241,7 @@
                                 <h2 class="f18 f_white">專題演講二</h2>
                                 <span class="f_blue">
                                     老將or新兵?用對的都是好兵! <br />
-                                    ──HR的跨世代用人哲學
+                                    ── HR的跨世代用人哲學
                                 </span>
                             </div>
 
@@ -262,15 +258,10 @@
 
                         </div>
                         <div class="event">
-                            <p class="time">16:25 – 16:30</p>
+                            <p class="time">16:25 –</p>
                             <p class="dot"></p>
-                            <div class="subject">大合影</div>
+                            <div class="subject">散場</div>
 
-                        </div>
-                        <div class="event">
-                            <p class="time">16:30 – </p>
-                            <p class="dot"></p>
-                            <div class="subject">散場/發放餐盒</div>
                         </div>
                         
                     </div>
@@ -333,7 +324,7 @@ export default {
         carouselCurrent: 0,
         schedualCurrent: 0,
         locationCurrent: 0,
-        sessions: [{time: '11/6', name: '台中場', location: '台中市407西屯區科園路19號', place: '中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '50544彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學院國際會議廳'}],
+        sessions: [{time: '11/6', name: '台中場', location: '台中市西屯區科園路19號', place: '國立中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學苑國際會議廳'}],
         swiperOption: {
             loop: true,
             slidesPerView: 3,
@@ -379,12 +370,11 @@ export default {
         popupMsg: '',
         allSpeakers: [
             //FIXME: 彰化場
-            {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-1.jpg'), title: 'MAYO創辦人暨執行長', subject:'專題演講一', hashtag: '#新科技帶來新企業，未來人才你挑對了嗎?'},
-            {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#從隊員變教練 ── 迎向數位轉型，人資要比老闆清楚的那件事'},
-            {session: '台中場', name:'孫弘岳', photo: require('@/assets/img/speaker-3.jpg'), title: '國立臺灣師範大學科技應用與<br />人力資源發展學系助理教授', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，HR如何領軍站上浪頭'},
-            {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '##跟對老闆不如幫對老闆 ── 二代接班的HR角色怎麼演?'},
-            {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵! ── HR的跨世代用人哲學'},
-            {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
+            {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
+            {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
+            // {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
+            // {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
+            // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
         ],
 
       }
@@ -427,12 +417,12 @@ export default {
         },
         //FIXME: 彰化場
         schedualTabHandler(index) {
-            // return false;
+            return false;
             this.schedualCurrent = index;
         },
         //FIXME: 彰化場
         locationTabHandler(index) {
-            // return false;
+            return false;
             this.locationCurrent = index;
         },
         onSubmit(e) {
@@ -931,7 +921,7 @@ img {
     .location {
         position: relative;
         //FIXME: 彰化場
-        cursor: pointer;
+        // cursor: pointer;
         width: 100%;
         line-height: 1.2;
         margin-bottom: 80px;
@@ -949,22 +939,22 @@ img {
             font-family: 'Oswald', sans-serif;
         }
         //FIXME: 彰化場
-        // &:nth-child(2) {
-        //     h6:after {
-        //         content: '(敬請期待)';
-        //         display: block;
-        //         font-family: 'Noto Sans TC', sans-serif;
-        //         font-size: 20px;
-        //         letter-spacing: 1px;
-        //         @media (max-width: 599px){
-        //             font-size: 16px;
-        //         }
-        //     }
-        // }
-        //FIXME: 彰化場
-        &:hover {
-            opacity: .6;
+        &:nth-child(2) {
+            h6:after {
+                content: '(敬請期待)';
+                display: block;
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                letter-spacing: 1px;
+                @media (max-width: 599px){
+                    font-size: 16px;
+                }
+            }
         }
+        //FIXME: 彰化場
+        // &:hover {
+        //     opacity: .6;
+        // }
         .bg_grey {
             padding: 30px;
             position: relative;
@@ -1266,6 +1256,16 @@ input[type='checkbox']:checked {
             top: 58px;
             right: 10px;
 
+        }
+    }
+    font {
+        width: calc(100% - 107px);
+        display: block;
+        float: right;
+        text-align: left;
+        padding: 5px 0 0;
+        @media (max-width: 599px){
+            width: 100%;
         }
     }
     

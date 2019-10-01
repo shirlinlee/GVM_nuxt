@@ -1,10 +1,7 @@
-  
-const { resolve } = require('path');
-
 export default {
-  router: {
-    base: '/GVM_dist/'
-  },
+  // router: {
+  //   base: '/GVM_dist/'
+  // },
   mode: 'universal',
   /*
   ** Headers of the page
