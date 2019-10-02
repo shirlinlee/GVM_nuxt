@@ -19,9 +19,18 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700|Oswald:500&display=swap' }
-    ]
+    ],
+    script:[
+      { src: '/js/media.js', 
+        // mode: 'client',
+        defer: true 
+      }
+    ],
    
   },
+  noscript: [
+    { innerHTML: '<img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=IH0Jm1akKd60T3" style="display:none" height="1" width="1" alt="" />' }
+  ],
   /*
   ** Customize the progress-bar color
   */
@@ -44,10 +53,12 @@ export default {
       src: '~/plugins/vue-swiper.js',
       ssr: false
     },
-    { src: '~plugins/media.js', 
-      ssr: false
-    }
+    // { src: '~/static/js/media.js', 
+    //   mode: 'client',
+    //   defer: true 
+    // }
   ],
+  
   /*
   ** Nuxt.js dev-modules
   */

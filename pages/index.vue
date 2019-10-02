@@ -51,7 +51,7 @@
                 </div>
                 <client-only>
                 <div v-swiper:mySwiper="swiperOption" id="person_slider">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" :class="{few: allSpeakers.length ===2 }">
                         <div class="swiper-slide" v-for="(slide, index) in allSpeakers" :key="'speaker_'+index">
                             <div class="img_wrapper">
                                 <img :src="slide.photo" alt="">
@@ -106,8 +106,8 @@
                         <p>場次</p>
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option value="台中場">台中場</option>
-                            <!-- //FIXME: 彰化場 -->
-                            <!-- <option value="彰化場">彰化場</option> -->
+                            <!-- //FIXME: 可選彰化場 -->
+                            <option value="彰化場">彰化場</option>
                         </select>
                         <i class="arrow"></i>
                     </div>
@@ -326,6 +326,7 @@ export default {
         locationCurrent: 0,
         sessions: [{time: '11/6', name: '台中場', location: '台中市西屯區科園路19號', place: '國立中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學苑國際會議廳'}],
         swiperOption: {
+            //FIXME: 可選彰化場
             loop: true,
             slidesPerView: 3,
             spaceBetween: 0,
@@ -338,7 +339,7 @@ export default {
                 768: { 
                     slidesPerView: 2,
                 },
-                414: {
+                599: {
                     slidesPerView: 1,
                 }
             }
@@ -369,12 +370,12 @@ export default {
         isPopupOpen: false,
         popupMsg: '',
         allSpeakers: [
-            //FIXME: 彰化場
+            //FIXME: 可選彰化場
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
             {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
-            // {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
-            // {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
-            // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
+            {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
+            {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
+            {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
         ],
 
       }
@@ -415,14 +416,14 @@ export default {
         popupHandler(el) {
             this.isPopupOpen = el.close;
         },
-        //FIXME: 彰化場
+        //FIXME: 可選彰化場
         schedualTabHandler(index) {
-            return false;
+            // return false;
             this.schedualCurrent = index;
         },
-        //FIXME: 彰化場
+        //FIXME: 可選彰化場
         locationTabHandler(index) {
-            return false;
+            // return false;
             this.locationCurrent = index;
         },
         onSubmit(e) {
@@ -805,6 +806,17 @@ img {
     }
 }
 
+.swiper-wrapper{
+    &.few {
+        @media (min-width: 769px){
+            display: block;
+            .swiper-slide {
+                display: inline-block;
+            }
+        }
+    }
+}
+
 .swiper-slide {
     position: relative;
     h4{
@@ -920,8 +932,8 @@ img {
     }
     .location {
         position: relative;
-        //FIXME: 彰化場
-        // cursor: pointer;
+        //FIXME: 可選彰化場
+        cursor: pointer;
         width: 100%;
         line-height: 1.2;
         margin-bottom: 80px;
@@ -938,23 +950,23 @@ img {
             display: block;
             font-family: 'Oswald', sans-serif;
         }
-        //FIXME: 彰化場
-        &:nth-child(2) {
-            h6:after {
-                content: '(敬請期待)';
-                display: block;
-                font-family: 'Noto Sans TC', sans-serif;
-                font-size: 20px;
-                letter-spacing: 1px;
-                @media (max-width: 599px){
-                    font-size: 16px;
-                }
-            }
-        }
-        //FIXME: 彰化場
-        // &:hover {
-        //     opacity: .6;
+        //FIXME: 可選彰化場
+        // &:nth-child(2) {
+        //     h6:after {
+        //         content: '(敬請期待)';
+        //         display: block;
+        //         font-family: 'Noto Sans TC', sans-serif;
+        //         font-size: 20px;
+        //         letter-spacing: 1px;
+        //         @media (max-width: 599px){
+        //             font-size: 16px;
+        //         }
+        //     }
         // }
+        //FIXME: 可選彰化場
+        &:hover {
+            opacity: .6;
+        }
         .bg_grey {
             padding: 30px;
             position: relative;
