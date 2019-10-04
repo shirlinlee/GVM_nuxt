@@ -24,7 +24,7 @@ export default {
       { property: 'og:type', content: 'website'},
       { property: 'og:url', content: 'https://newage_human.gvm.com.tw/'},
       { property: 'og:site_name', content: 'newage_human'},
-      { property: 'og:image', content: '/facebook-share.jpg'},
+      { property: 'og:image', content: 'https://newage_human.gvm.com.tw/facebook-share.jpg'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

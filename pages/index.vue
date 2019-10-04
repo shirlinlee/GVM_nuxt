@@ -40,9 +40,6 @@
         
       <div class="section" id="speaker">
             <img src="@/assets/img/rightimg.png" class="poA geo_top">
-            <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
-            <img src="@/assets/img/bg-02.png" class="poA bg W100">
-            
             <div class="W1140 poR wow fadeInUp" style="z-index: 20;">
                 <div class="title">
                     <h4 class="f66 poA">02</h4>
@@ -74,71 +71,13 @@
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
-               
 
-      </div>
-
-       <div class="section" id="form">
-            <div class="W1140 wow fadeInUp">
-                  <div class="title">
-                    <h4 class="f66 poA">03</h4>
-                    <h3 class="f30">立即報名</h3>
-                    <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
-                </div>
-                <form @submit="onSubmit" method="post" class="f18" >
-                    <div class="tr t_right f_red">
-                        *為必填項目
-                    </div>
-                    
-                    <div class="tr">
-                        <p>姓名</p>
-                        <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
-                    </div>
-                    <div class="tr">
-                        <p>手機</p>
-                        <input type="tel" name="phone" maxlength="10" v-model="formObj.phone" placeholder="0912345678" required="required">
-                    </div>
-                    <div class="tr">
-                        <p>e-mail</p>
-                        <input type="email" name="email" v-model="formObj.email" required="required">
-                    </div>
-                    <div class="tr">
-                        <p>場次</p>
-                        <select name="" id="event" v-model="formObj.session" required="required">
-                            <option value="台中場">台中場</option>
-                            <!-- //FIXME: 可選彰化場 -->
-                            <!-- <option value="彰化場">彰化場</option> -->
-                        </select>
-                        <i class="arrow"></i>
-                    </div>
-                    <div class="tr">
-                        <p>所屬單位</p>
-                        <input type="text" name="dept" v-model="formObj.dept" required="required">
-                    </div>
-                    <div class="tr">
-                        <p>職稱</p>
-                        <input type="text" name="job" v-model="formObj.job" required="required">
-                    </div>
-                    <div class="tr">
-                        <p class="optional">身分證字號</p>
-                        <input type="text" name="rocid" v-model="formObj.rocid">
-                        <font class="f15 f_grey">(須申請公務人員學習時數者提供)</font>
-                    </div>
-                    <div class="tr t_left">
-                        <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
-                        <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
-                    </div>
-                    <button class="f18 submit" type="submit">送出</button>
-                </form>
-            
-            </div>
-          
       </div>
 
       <div class="section" id="schedual">
             <div class="wow fadeInUp">
                 <div class="title">
-                    <h4 class="f66 poA">04</h4>
+                    <h4 class="f66 poA">03</h4>
                     <h3 class="f30">地方論壇議程</h3>
                     <h2 class="f66">SCHEDULE</h2>
                 </div>
@@ -271,10 +210,16 @@
         </div>
 
      
+      
+      
+      
       <div class="section wow fadeInUp" id="location">
+        <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
+        <img src="@/assets/img/bg-02.png" class="poA bg W100">
+        
         <div class="wow fadeInUp">
             <div class="title">
-                <h4 class="f66 poA">05</h4>
+                <h4 class="f66 poA">04</h4>
                 <h3 class="f30">場地資訊</h3>
                 <h2 class="f66">&nbsp;PLACE&nbsp;</h2>
             </div>
@@ -297,6 +242,62 @@
                 </div>
           </div>
         </div>
+          
+      </div>
+        <div class="section" id="form">
+            <div class="W1140 wow fadeInUp">
+                  <div class="title">
+                    <h4 class="f66 poA">05</h4>
+                    <h3 class="f30">立即報名</h3>
+                    <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
+                </div>
+                <form @submit="onSubmit" method="post" class="f18" >
+                    <div class="tr t_right f_red">
+                        *為必填項目
+                    </div>
+                    
+                    <div class="tr">
+                        <p>姓名</p>
+                        <input type="text" name="name" maxlength="20" v-model="formObj.name" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>手機</p>
+                        <input type="tel" name="phone" maxlength="10" v-model="formObj.phone" placeholder="0912345678" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>e-mail</p>
+                        <input type="email" name="email" v-model="formObj.email" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>場次</p>
+                        <select name="" id="event" v-model="formObj.session" required="required">
+                            <option value="台中場">台中場</option>
+                            <!-- //FIXME: 可選彰化場 -->
+                            <!-- <option value="彰化場">彰化場</option> -->
+                        </select>
+                        <i class="arrow"></i>
+                    </div>
+                    <div class="tr">
+                        <p>所屬單位</p>
+                        <input type="text" name="dept" v-model="formObj.dept" required="required">
+                    </div>
+                    <div class="tr">
+                        <p>職稱</p>
+                        <input type="text" name="job" v-model="formObj.job" required="required">
+                    </div>
+                    <div class="tr">
+                        <p class="optional">身分證字號</p>
+                        <input type="text" name="rocid" v-model="formObj.rocid">
+                        <font class="f15 f_grey">(須申請公務人員學習時數者提供)</font>
+                    </div>
+                    <div class="tr t_left">
+                        <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
+                        <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
+                    </div>
+                    <button class="f18 submit" type="submit">送出</button>
+                </form>
+            
+            </div>
           
       </div>
         
@@ -345,27 +346,27 @@ export default {
             }
         },
         submitClicked: false,
-        formObj: {
-            name:'李芷儀',
-            phone:'0978036006',
-            email:'hn85412404@gmail.com',
-            session:'台中場',
-            dept:'ABC',
-            job:'設計師',
-            rocid: 'A226498914',
-            event: '108管理策略論壇',
-        },
-        test: '123',
         // formObj: {
-        //     name:'',
-        //     phone:'',
-        //     email:'',
-        //     session:'',
-        //     dept:'',
-        //     job:'',
-        //     rocid: '',
+        //     name:'李芷儀',
+        //     phone:'0978036006',
+        //     email:'hn85412404@gmail.com',
+        //     session:'台中場',
+        //     dept:'ABC',
+        //     job:'設計師',
+        //     rocid: 'A226498914',
         //     event: '108管理策略論壇',
         // },
+        test: '123',
+        formObj: {
+            name:'',
+            phone:'',
+            email:'',
+            session:'',
+            dept:'',
+            job:'',
+            rocid: '',
+            event: '108管理策略論壇',
+        },
         agreement: false, 
         isPopupOpen: false,
         popupMsg: '',
@@ -888,26 +889,32 @@ img {
             top: -60px;
             width: 60%;
         }
+    }
+}
 
-    }
-    .geo_bottom {
-        bottom: -55vw;
-        width: 40%;
-        left: 0;
-        z-index: -1;
-        @media (max-width: 599px){
-            width: 60%;
-        }
-    }
+#location {
     .bg {
-        bottom: -50vw;
+        bottom: -35vw;
         left: 50%;
         transform: translate(-50%, 0); 
         width: 100%;
         min-width: 1680px;
-        z-index: 1;
+        z-index: 2;
         @media (max-width: 599px){
             min-width: 768px;
+            bottom: -50vw;
+
+        }
+    }
+    .geo_bottom {
+        bottom: -42vw;
+        width: 40%;
+        left: 0;
+        z-index: 1;
+        @media (max-width: 599px){
+            width: 60%;
+            bottom: -55vw;
+
         }
     }
 }
@@ -1035,6 +1042,8 @@ img {
     width: calc(100% - 340px - 32px);
     margin-left: 25px;
     margin-bottom: 50px;
+    position: relative;
+    z-index: 4;
     @media (max-width: 768px){
         width: 100%;
         margin: 40px auto 20px;
