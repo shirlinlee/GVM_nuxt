@@ -1041,9 +1041,7 @@ img {
     display: inline-block;
     width: calc(100% - 340px - 32px);
     margin-left: 25px;
-    margin-bottom: 50px;
-    position: relative;
-    z-index: 4;
+    margin-bottom: 50px;    
     @media (max-width: 768px){
         width: 100%;
         margin: 40px auto 20px;
@@ -1299,6 +1297,7 @@ input[type='checkbox']:checked {
 
 .google_map {
     position: relative;
+    z-index: 4;
 }
 
 .swiper-slide h5 {

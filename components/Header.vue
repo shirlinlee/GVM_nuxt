@@ -6,9 +6,9 @@
       <ul :class="{'show': isNavOpen}" class="f18">
           <li @click="scrollHandler('#intro')">論壇簡介</li>
           <li @click="scrollHandler('#speaker')">講者簡介</li>
-          <li @click="scrollHandler('#form')">立即報名</li>
           <li @click="scrollHandler('#schedual')">論壇議程</li>
           <li @click="scrollHandler('#location')">場地資訊</li>
+          <li @click="scrollHandler('#form')">立即報名</li>
       </ul>
       <div class="hambergur" :class="{'show': isNavOpen}" @click="navHandler">
         <span />
