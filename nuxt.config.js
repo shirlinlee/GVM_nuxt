@@ -9,12 +9,22 @@ export default {
   // router: {
   //   base: '/GVM_dist/'
   // },
+  env: {
+    baseUrl: process.env.BASE_URL || ''
+  },
   head: {
-    title: process.env.npm_package_name || '',
+    title: '108年新時代人力資源管理策略系列論壇',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { name: 'description', hid: 'description',content: '臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！' },
+      { name: 'keyword', content: '人力資源,數位轉型,企業接班' },
+      { property: 'og:title', content: '108年新時代人力資源管理策略系列論壇' },
+      { property: 'og:description', content: '臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！'},
+      { property: 'og:type', content: 'website'},
+      { property: 'og:url', content: 'https://newage_human.gvm.com.tw/'},
+      { property: 'og:site_name', content: 'newage_human'},
+      { property: 'og:image', content: '/facebook-share.jpg'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -88,4 +98,7 @@ export default {
     },
  
   },
+  generate: {
+    dir: (process.env.NODE_ENV === 'prod') ? 'dist/prod': 'dist/test'
+  }
 }

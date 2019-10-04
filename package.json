@@ -5,10 +5,11 @@
   "author": "lee",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env BASE_URL=http://35.185.161.185:9000 NODE_ENV=dev nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate:prod": "cross-env NODE_ENV=prod nuxt generate",
+    "generate:test": "cross-env NODE_ENV=test BASE_URL=http://35.185.161.185:9000 nuxt generate"
   },
   "dependencies": {
     "axios": "^0.19.0",

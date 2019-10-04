@@ -26,10 +26,10 @@
                     <div class="W1140">
                         <h1 class="f30">人力資源X數位轉型X企業接班</h1>
                         <p class="f18">
-                            21世紀是一個快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
-                            臺灣企業面臨浪潮衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，才能因應數位時代洪流！<br/>
+                            21世紀是快速又時刻充滿高風險的時代，我們無法預知產業未來，卻能看見人才！<br/>
+                            臺灣企業面臨衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，因應數位時代洪流！<br/>
                             勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。<br/>
-                            期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>以及綜觀人力資源新趨勢的<font class="f_blue">總論壇，</font><br/>
+                            期盼透過呼應地方產業發展特色的兩場<font class="f_blue">地方論壇</font>及綜觀人力資源新趨勢<font class="f_blue">總論壇，</font><br/>
                             共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
                         </p>
                     </div>
@@ -107,7 +107,7 @@
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option value="台中場">台中場</option>
                             <!-- //FIXME: 可選彰化場 -->
-                            <option value="彰化場">彰化場</option>
+                            <!-- <option value="彰化場">彰化場</option> -->
                         </select>
                         <i class="arrow"></i>
                     </div>
@@ -327,7 +327,7 @@ export default {
         sessions: [{time: '11/6', name: '台中場', location: '台中市西屯區科園路19號', place: '國立中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學苑國際會議廳'}],
         swiperOption: {
             //FIXME: 可選彰化場
-            loop: true,
+            // loop: true,
             slidesPerView: 3,
             spaceBetween: 0,
             navigation: {
@@ -345,27 +345,27 @@ export default {
             }
         },
         submitClicked: false,
-        // formObj: {
-        //     name:'李芷儀',
-        //     phone:'0978036006',
-        //     email:'hn85412404@gmail.com',
-        //     session:'台中場',
-        //     dept:'ABC',
-        //     job:'設計師',
-        //     rocid: 'A226498914',
-        //     event: '108管理策略論壇',
-        // },
-        test: '123',
         formObj: {
-            name:'',
-            phone:'',
-            email:'',
-            session:'',
-            dept:'',
-            job:'',
-            rocid: '',
+            name:'李芷儀',
+            phone:'0978036006',
+            email:'hn85412404@gmail.com',
+            session:'台中場',
+            dept:'ABC',
+            job:'設計師',
+            rocid: 'A226498914',
             event: '108管理策略論壇',
         },
+        test: '123',
+        // formObj: {
+        //     name:'',
+        //     phone:'',
+        //     email:'',
+        //     session:'',
+        //     dept:'',
+        //     job:'',
+        //     rocid: '',
+        //     event: '108管理策略論壇',
+        // },
         agreement: false, 
         isPopupOpen: false,
         popupMsg: '',
@@ -373,9 +373,9 @@ export default {
             //FIXME: 可選彰化場
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
             {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
-            {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
-            {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
-            {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
+            // {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
+            // {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
+            // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
         ],
 
       }
@@ -401,6 +401,7 @@ export default {
         Popup,
     },
     mounted() {
+        console.log(process.env.baseUrl);
         if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
              new WOW({
                 live: false, 
@@ -418,12 +419,12 @@ export default {
         },
         //FIXME: 可選彰化場
         schedualTabHandler(index) {
-            // return false;
+            return false;
             this.schedualCurrent = index;
         },
         //FIXME: 可選彰化場
         locationTabHandler(index) {
-            // return false;
+            return false;
             this.locationCurrent = index;
         },
         onSubmit(e) {
@@ -460,7 +461,10 @@ export default {
         },
         validatePass() {
             axios
-                .post('http://35.185.161.185:9000/api/postAttendee.php', qs.stringify(this.formObj))
+                .create({
+                    baseURL: process.env.baseUrl
+                })
+                .post('/api/postAttendee.php', qs.stringify(this.formObj))
                 .then(response => {
                     console.log(response);
                     if(response.status === 200) {
@@ -933,7 +937,7 @@ img {
     .location {
         position: relative;
         //FIXME: 可選彰化場
-        cursor: pointer;
+        // cursor: pointer;
         width: 100%;
         line-height: 1.2;
         margin-bottom: 80px;
@@ -951,22 +955,22 @@ img {
             font-family: 'Oswald', sans-serif;
         }
         //FIXME: 可選彰化場
-        // &:nth-child(2) {
-        //     h6:after {
-        //         content: '(敬請期待)';
-        //         display: block;
-        //         font-family: 'Noto Sans TC', sans-serif;
-        //         font-size: 20px;
-        //         letter-spacing: 1px;
-        //         @media (max-width: 599px){
-        //             font-size: 16px;
-        //         }
-        //     }
-        // }
-        //FIXME: 可選彰化場
-        &:hover {
-            opacity: .6;
+        &:nth-child(2) {
+            h6:after {
+                content: '(敬請期待)';
+                display: block;
+                font-family: 'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                letter-spacing: 1px;
+                @media (max-width: 599px){
+                    font-size: 16px;
+                }
+            }
         }
+        //FIXME: 可選彰化場
+        // &:hover {
+        //     opacity: .6;
+        // }
         .bg_grey {
             padding: 30px;
             position: relative;
