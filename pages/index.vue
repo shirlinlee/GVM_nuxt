@@ -217,7 +217,7 @@
         <img src="@/assets/img/leftimg.png" class="poA geo_bottom">
         <img src="@/assets/img/bg-02.png" class="poA bg W100">
         
-        <div class="wow fadeInUp">
+        <div class="wow fadeInUp" style="position: relative; z-index: 4;">
             <div class="title">
                 <h4 class="f66 poA">04</h4>
                 <h3 class="f30">場地資訊</h3>
@@ -237,8 +237,8 @@
                     </div>
                 </div>
                 <div class="map_imgs">
-                    <img src="@/assets/img/map_01.jpg" v-show="locationCurrent===0" />
-                    <img src="@/assets/img/map_02.jpg" v-show="locationCurrent===1" />
+                    <img src="@/assets/img/map_01.png" v-show="locationCurrent===0" />
+                    <img src="@/assets/img/map_02.png" v-show="locationCurrent===1" />
                 </div>
           </div>
         </div>
@@ -292,7 +292,8 @@
                     </div>
                     <div class="tr t_left">
                         <input type="checkbox" name="" id="agreement" v-model="agreement" required="required">
-                        <label for="agreement">我已詳閱並同意<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>。</label>
+                        <label for="agreement">我同意並授權「勞動部勞動力發展署」、「遠見雜誌」<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a></label>
+                        
                     </div>
                     <button class="f18 submit" type="submit">送出</button>
                 </form>
@@ -507,7 +508,7 @@ export default {
 body, html {
     font-family: 'Noto Sans TC', sans-serif;
     width: 100%;
-    overflow-x: hidden;
+    // overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -709,6 +710,11 @@ img {
 	}
 }
 
+#content {
+    width: 100%;
+    overflow: hidden;
+}
+
 #intro {
     position: relative;
     z-index: 5;
@@ -863,7 +869,6 @@ img {
 
 
 #schedual, #form {
-    background-color: #ffffff;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -875,6 +880,7 @@ img {
 }
 
  #schedual {
+     background-color: #ffffff;
  }
 
 #speaker {
@@ -1042,8 +1048,6 @@ img {
     width: calc(100% - 340px - 32px);
     margin-left: 25px;
     margin-bottom: 50px;
-    position: relative;
-    z-index: 4;
     @media (max-width: 768px){
         width: 100%;
         margin: 40px auto 20px;
@@ -1215,9 +1219,17 @@ input[type='checkbox'] {
     position: relative;
 }
 
+input#agreement {
+    position: absolute;
+    top:0 ;
+    left: 0;
+}
+
 input[type='checkbox'] + label {
     line-height: 26px;
     vertical-align: top;
+    padding-left: 33px;
+    display: block;
 }
 
 input[type='checkbox']:checked {
