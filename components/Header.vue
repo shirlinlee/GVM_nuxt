@@ -1,6 +1,6 @@
 <template>
   <div id="top" class="W100 bg_trans_white" :class="{'bg_blue': showFixBar}">
-      <img src="@/assets/img/gv-mlogo.jpg" alt="" class="logo">
+      <!-- <img src="@/assets/img/gv-mlogo.jpg" alt="" class="logo"> -->
       <img src="@/assets/img/logotop-2.png" alt="" class="logo">
 
       <ul :class="{'show': isNavOpen}" class="f18">
