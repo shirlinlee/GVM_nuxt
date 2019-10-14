@@ -362,7 +362,7 @@ export default {
             name:'',
             phone:'',
             email:'',
-            session:'',
+            session:'台中場',
             dept:'',
             job:'',
             rocid: '',
@@ -491,7 +491,8 @@ export default {
             this.submitClicked = false;
         },
         clearForm() {
-            this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
+            this.formObj = {name:'',phone:'',email:'',session:'台中場',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
+            this.agreement =false; 
         }
     },
     
