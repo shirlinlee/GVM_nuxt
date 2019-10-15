@@ -271,9 +271,10 @@
                     <div class="tr">
                         <p>場次</p>
                         <select name="" id="event" v-model="formObj.session" required="required">
+                            <option disabled value="">請選擇場次</option>
                             <option value="台中場">台中場</option>
                             <!-- //FIXME: 可選彰化場 -->
-                            <!-- <option value="彰化場">彰化場</option> -->
+                            <option value="彰化場">彰化場</option>
                         </select>
                         <i class="arrow"></i>
                     </div>
@@ -362,7 +363,7 @@ export default {
             name:'',
             phone:'',
             email:'',
-            session:'台中場',
+            session:'',
             dept:'',
             job:'',
             rocid: '',
@@ -376,7 +377,7 @@ export default {
             {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-3.jpg'), title: 'MAYO鼎恒數位創辦人暨執行長', subject:'專題演講一 ', hashtag: '#新科技帶來新企業，<br />未來人才你挑對了嗎?'},
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
             {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
-            // {session: '彰化場', name:'陳茂欽', photo: require('@/assets/img/speaker-4.jpg'), title: '玉山金控總部策略長', subject:'專題演講一', hashtag: '#跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
+            {session: '彰化場', name:'許士軍', photo: require('@/assets/img/speaker-4.jpg'), title: '逢甲大學人言講座教授', subject:'綜合座談暨交流Q&A', hashtag: '#輔佐繼承者們HR成功秘笈'},
             // {session: '彰化場', name:'鍾喜梅', photo: require('@/assets/img/speaker-5.jpg'), title: '義守大學企管系教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
             // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
         ],
@@ -422,12 +423,12 @@ export default {
         },
         //FIXME: 可選彰化場
         schedualTabHandler(index) {
-            return false;
+            // return false;
             this.schedualCurrent = index;
         },
         //FIXME: 可選彰化場
         locationTabHandler(index) {
-            return false;
+            // return false;
             this.locationCurrent = index;
         },
         onSubmit(e) {
@@ -491,7 +492,7 @@ export default {
             this.submitClicked = false;
         },
         clearForm() {
-            this.formObj = {name:'',phone:'',email:'',session:'台中場',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
+            this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
             this.agreement =false; 
         }
     },
@@ -952,7 +953,7 @@ img {
     .location {
         position: relative;
         //FIXME: 可選彰化場
-        // cursor: pointer;
+        cursor: pointer;
         width: 100%;
         line-height: 1.2;
         margin-bottom: 80px;
@@ -970,22 +971,22 @@ img {
             font-family: 'Oswald', sans-serif;
         }
         //FIXME: 可選彰化場
-        &:nth-child(2) {
-            h6:after {
-                content: '(敬請期待)';
-                display: block;
-                font-family: 'Noto Sans TC', sans-serif;
-                font-size: 20px;
-                letter-spacing: 1px;
-                @media (max-width: 599px){
-                    font-size: 16px;
-                }
-            }
-        }
-        //FIXME: 可選彰化場
-        // &:hover {
-        //     opacity: .6;
+        // &:nth-child(2) {
+        //     h6:after {
+        //         content: '(敬請期待)';
+        //         display: block;
+        //         font-family: 'Noto Sans TC', sans-serif;
+        //         font-size: 20px;
+        //         letter-spacing: 1px;
+        //         @media (max-width: 599px){
+        //             font-size: 16px;
+        //         }
+        //     }
         // }
+        //FIXME: 可選彰化場
+        &:hover {
+            opacity: .6;
+        }
         .bg_grey {
             padding: 30px;
             position: relative;
