@@ -296,7 +296,7 @@
                         <label for="agreement">我同意並授權「勞動部勞動力發展署」、「遠見雜誌」<a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a></label>
                         
                     </div>
-                    <button class="f18 submit" type="submit">送出</button>
+                    <button class="f18 submit" type="submit" :class="{'disable': submitClicked }">送出</button>
                 </form>
             
             </div>
@@ -477,6 +477,7 @@ export default {
                     } else {
                         this.openPopup('表單尚未送出');
                     }
+                    this.submitClicked = false;
                 } )
                 .catch( error =>  {
                     console.log(error.response.status)
@@ -486,10 +487,10 @@ export default {
                     } else {
                         this.openPopup('表單尚未送出');
                     }
-
+                    this.submitClicked = false;
                 });
 
-            this.submitClicked = false;
+            
         },
         clearForm() {
             this.formObj = {name:'',phone:'',email:'',session:'',dept:'',job:'',rocid: '',event: '108管理策略論壇'};
@@ -1172,6 +1173,13 @@ form {
         margin: 10px auto;
         transition: all .4s;
         cursor: pointer;
+        &.disable {
+            -webkit-user-select: none; /* Safari 3.1+ */
+            -moz-user-select: none; /* Firefox 2+ */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard syntax */
+            opacity: .5;
+        }
         @media (min-width: 769px){
             &:hover{
                 letter-spacing: 5px;
