@@ -272,7 +272,7 @@
                         <p>場次</p>
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option disabled value="">請選擇場次</option>
-                            <option value="台中場">台中場</option>
+                            <option value="台中場" disabled>台中場(報名額滿)</option>
                             <!-- //FIXME: 可選彰化場 -->
                             <option value="彰化場">彰化場</option>
                         </select>
