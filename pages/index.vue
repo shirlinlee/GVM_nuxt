@@ -272,7 +272,7 @@
                         <p>場次</p>
                         <select name="" id="event" v-model="formObj.session" required="required">
                             <option disabled value="">請選擇場次</option>
-                            <option value="台中場" disabled>台中場(報名額滿)</option>
+                            <!--<option value="台中場" disabled>台中場(報名額滿)</option> -->
                             <!-- //FIXME: 可選彰化場 -->
                             <option value="彰化場">彰化場</option>
                         </select>
@@ -325,8 +325,8 @@ export default {
     data () {
       return {
         carouselCurrent: 0,
-        schedualCurrent: 0,
-        locationCurrent: 0,
+        schedualCurrent: 1,
+        locationCurrent: 1,
         sessions: [{time: '11/6', name: '台中場', location: '台中市西屯區科園路19號', place: '國立中興大學中科校區<br>育成推廣組國際會議廳'},{time: '11/14', name: '彰化場', location: '彰化縣鹿港鎮中正路588號', place: '勞動力發展署中彰投分署-<br>勞動學苑國際會議廳'}],
         swiperOption: {
             //FIXME: 可選彰化場
@@ -374,11 +374,11 @@ export default {
         popupMsg: '',
         allSpeakers: [
             //FIXME: 可選彰化場
+            {session: '彰化場', name:'詹賀博', photo: require('@/assets/img/speaker-5.jpg'), title: '光隆實業 董事長', subject:'專題演講一', hashtag: '＃跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
+            {session: '彰化場', name:'許士軍', photo: require('@/assets/img/speaker-4.jpg'), title: '逢甲大學人言講座教授', subject:'綜合座談暨交流Q&A', hashtag: '#輔佐繼承者們HR成功秘笈'},
             {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-3.jpg'), title: 'MAYO鼎恒數位創辦人暨執行長', subject:'專題演講一 ', hashtag: '#新科技帶來新企業，<br />未來人才你挑對了嗎?'},
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
             {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
-            {session: '彰化場', name:'詹賀博', photo: require('@/assets/img/speaker-5.jpg'), title: '光隆實業 董事長', subject:'專題演講一', hashtag: '＃跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
-            {session: '彰化場', name:'許士軍', photo: require('@/assets/img/speaker-4.jpg'), title: '逢甲大學人言講座教授', subject:'綜合座談暨交流Q&A', hashtag: '#輔佐繼承者們HR成功秘笈'},
             // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
         ],
 
