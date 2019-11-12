@@ -191,7 +191,7 @@
                             <div class="subject">
                                 <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
                                 <span class="f_blue">
-                                    輔佐繼承者們HR成功秘笈
+                                    輔佐繼承者們的HR成功秘笈
                                 </span>
                             </div>
 
@@ -375,11 +375,12 @@ export default {
         allSpeakers: [
             //FIXME: 可選彰化場
             {session: '彰化場', name:'詹賀博', photo: require('@/assets/img/speaker-5.jpg'), title: '光隆實業 董事長', subject:'專題演講一', hashtag: '＃跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?'},
-            {session: '彰化場', name:'許士軍', photo: require('@/assets/img/speaker-4.jpg'), title: '逢甲大學人言講座教授', subject:'綜合座談暨交流Q&A', hashtag: '#輔佐繼承者們HR成功秘笈'},
+            {session: '彰化場', name:'許士軍', photo: require('@/assets/img/speaker-4.jpg'), title: '逢甲大學人言講座教授', subject:'專題演講二', hashtag: '#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學'},
+            {session: '彰化場', name:'林珮萱', photo: require('@/assets/img/speaker-6.jpg'), title: '《遠見雜誌》資深撰述', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們的HR成功秘笈'},
             {session: '台中場', name:'簡士評', photo: require('@/assets/img/speaker-3.jpg'), title: 'MAYO鼎恒數位創辦人暨執行長', subject:'專題演講一 ', hashtag: '#新科技帶來新企業，<br />未來人才你挑對了嗎?'},
             {session: '台中場', name:'謝鄭忠', photo: require('@/assets/img/speaker-2.jpg'), title: '宇瞻科技行政服務處處長', subject:'專題演講二', hashtag: '#迎向數位轉型，<br />人資要比老闆清楚的那件事'},
             {session: '台中場', name:'盧世安', photo: require('@/assets/img/speaker-1.jpg'), title: '人資小週末專業社群創辦人', subject:'綜合座談暨交流Q&A ', hashtag: '#智慧浪潮來襲，<br />HR如何領軍站上浪頭'},
-            // {session: '彰化場', name:'林文政', photo: require('@/assets/img/speaker-6.jpg'), title: '國立中央大學<br />人力資源管理研究所副教授', subject:'綜合座談暨交流Q&A ', hashtag: '#輔佐繼承者們HR成功秘笈'},
+
         ],
 
       }
