@@ -91,7 +91,7 @@
                 class="location"
                 v-for="(tab, index) in sessions"
                 :key="'tab_'+index"
-                :class="{'active': index === schedualCurrent }"
+                :class="[{'active': index === schedualCurrent }, `active_${index}`]"
                 @click="schedualTabHandler(index)"
               >
                 <h5 class="f30">-{{ tab.name }}-</h5>
@@ -328,7 +328,7 @@
                 class="location"
                 v-for="(tab, index) in sessions"
                 :key="'session_'+index"
-                :class="{'active': index === locationCurrent }"
+                :class="[{'active': index === locationCurrent }, `active_${index}`]"
                 @click="locationTabHandler(index)"
               >
                 <h5 class="f30">-{{ tab.name }}-</h5>
@@ -387,9 +387,9 @@
               <p>場次</p>
               <select name id="event" v-model="formObj.session" required="required">
                 <option disabled value>請選擇場次</option>
-                <option value="總論壇">總論壇（12/3）</option>
+                <option value="總論壇">總論壇</option>
                 <!-- //FIXME: 可選彰化場 -->
-                <option value="彰化場">彰化場</option>
+                <!-- <option value="彰化場">彰化場</option> -->
               </select>
               <i class="arrow"></i>
             </div>
@@ -508,7 +508,7 @@ export default {
       allSpeakers: [
         //FIXME: 可選彰化場
         {
-          session: "<font>總論壇<br />12/3</font>",
+          session: "<span>總論壇</span>",
           name: "鄭晉昌",
           photo: require("@/assets/img/speaker-7.jpg"),
           title: "國立中央大學<br />人力資源管理研究所教授",
@@ -516,7 +516,7 @@ export default {
           hashtag: "#永遠走在最前面<br />──新時代的人力資源管理策略"
         },
         {
-          session: "<font>總論壇<br />12/3</font>",
+          session: "<span>總論壇</span>",
           name: "朱姵穎",
           photo: require("@/assets/img/speaker-8.jpg"),
           title: "友嘉集團 董事",
@@ -524,7 +524,7 @@ export default {
           hashtag: "#二代接班新布局<br />──繼承者所需要的新世代HR"
         },
         {
-          session: "<font>總論壇<br />12/3</font>",
+          session: "<span>總論壇</span>",
           name: "李建興",
           photo: require("@/assets/img/speaker-9.jpg"),
           title: "遠見雜誌副總編輯",
@@ -1210,7 +1210,7 @@ img {
       @media (max-width: 768px) {
         padding: 25px 20px;
         width: 100%;
-        margin-top: 30px;
+        margin-top: 50px;
         position: absolute;
         left: 0;
       }
@@ -1242,10 +1242,9 @@ img {
         top: 48px;
         transform: translate(-100%, -50%);
         @media (max-width: 768px) {
-          right: 52%;
           top: 100px;
-          transform: translate(100%, 0) rotate(90deg);
-          opacity: 0;
+          transform: translate(50%, 0) rotate(90deg);
+          
         }
         @media (max-width: 559px) {
           top: 70px;
@@ -1253,6 +1252,23 @@ img {
       }
       .bg_grey {
         display: block;
+      }
+      @media (max-width: 768px) {
+        &.active_0 {
+          &:after {
+            right: 83.33%;
+          }
+        }
+        &.active_1 {
+          &:after {
+            right: 50%;
+          }
+        }
+        &.active_2 {
+          &:after {
+            right: 16.66%;
+          }
+        }
       }
     }
   }
@@ -1265,7 +1281,7 @@ img {
   margin-bottom: 50px;
   @media (max-width: 768px) {
     width: 100%;
-    margin: 150px auto 20px;
+    margin: 170px auto 20px;
   }
 }
 
