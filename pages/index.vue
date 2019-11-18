@@ -30,7 +30,7 @@
                 <br />臺灣企業面臨衝擊，企業經營者應該保持前瞻遠見，培養新時代人資管理者，因應數位時代洪流！
                 <br />勞動力發展署中彰投分署為使企業及勞工能因應新時代人力資源發展趨勢，特別舉辦「108年新時代人力資源管理策略系列論壇」。
                 <br />期盼透過呼應地方產業發展特色的兩場
-                <font class="f_blue">地方論壇</font>及綜觀人力資源新趨勢
+                <font class="f_blue">論壇</font>及綜觀人力資源新趨勢
                 <font class="f_blue">總論壇，</font>
                 <br />共同探討企業人資該如何整備以因應新時代的挑戰，幫助企業提升競爭力！
               </p>
@@ -82,7 +82,7 @@
         <div class="wow fadeInUp">
           <div class="title">
             <h4 class="f66 poA">03</h4>
-            <h3 class="f30">地方論壇議程</h3>
+            <h3 class="f30">論壇議程</h3>
             <h2 class="f66">SCHEDULE</h2>
           </div>
           <div class="schedual_wrapper W1140">
@@ -121,7 +121,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">專題演講一</h2>
                   <span class="f_blue">
-                    科技X人力資源──
+                    科技X人力資源 ──
                     <br />做一個新時代人力資源工作者
                   </span>
                 </div>
@@ -132,7 +132,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">專題演講二</h2>
                   <span class="f_blue">
-                    企業人資新思維──
+                    企業人資新思維 ──
                     <br />新時代人才聘用與管理
                   </span>
                 </div>
@@ -143,7 +143,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
                   <span class="f_blue">
-                    永遠走在最前面──
+                    永遠走在最前面 ──
                     <br />新時代的人力資源管理策略
                   </span>
                 </div>
@@ -169,7 +169,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">專題演講一</h2>
                   <span class="f_blue">
-                      跨世代的人才需求── <br />
+                      跨世代的人才需求 ── <br />
                       HR如何選賢與能，助力接班布局 
                   </span>
                 </div>
@@ -180,7 +180,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">專題演講二</h2>
                   <span class="f_blue">
-                      二代接班新布局──<br />
+                      二代接班新布局 ──<br />
                       繼承者所需要的新世代HR
                   </span>
                 </div>
@@ -196,9 +196,7 @@
                 <div class="subject">
                   <h2 class="f18 f_white">綜合座談暨交流Q&A</h2>
                   <span class="f_blue">
-                    老手拉新手──
-                    <br />
-打造跨世代不老企業
+                    老手拉新手 ──<br />打造跨世代不老企業
                   </span>
                 </div>
               </div>
@@ -289,7 +287,7 @@
                   <h2 class="f18 f_white">專題演講二</h2>
                   <span class="f_blue">
                     老將or新兵?用對的都是好兵!
-                    <br />── HR的跨世代用人哲學
+                     ──<br />HR的跨世代用人哲學
                   </span>
                 </div>
               </div>
@@ -387,7 +385,9 @@
               <p>場次</p>
               <select name id="event" v-model="formObj.session" required="required">
                 <option disabled value>請選擇場次</option>
-                <option value="總論壇">總論壇</option>
+                <option value="總論壇(葷)">總論壇 - 供餐(葷食)</option>
+                <option value="總論壇(素)">總論壇 - 供餐(素食)</option>
+
                 <!-- //FIXME: 可選彰化場 -->
                 <!-- <option value="彰化場">彰化場</option> -->
               </select>
@@ -509,11 +509,35 @@ export default {
         //FIXME: 可選彰化場
         {
           session: "<span>總論壇</span>",
+          name: "陳家聰",
+          photo: require("@/assets/img/speaker-10.jpg"),
+          title: "SAP台灣業務副總經理",
+          subject: "專題演講一",
+          hashtag: "#科技X人力資源 ──<br />做一個新時代人力資源工作者"
+        },
+        {
+          session: "<span>總論壇</span>",
+          name: "李岳倫",
+          photo: require("@/assets/img/speaker-11.jpg"),
+          title: "美商宏智（DDI）台灣區<br />董事總經理",
+          subject: "專題演講二",
+          hashtag: "#企業人資新思維 ──<br />新時代人才聘用與管理"
+        },
+        {
+          session: "<span>總論壇</span>",
           name: "鄭晉昌",
           photo: require("@/assets/img/speaker-7.jpg"),
           title: "國立中央大學<br />人力資源管理研究所教授",
           subject: "綜合座談暨交流Q&A ",
-          hashtag: "#永遠走在最前面<br />──新時代的人力資源管理策略"
+          hashtag: "#永遠走在最前面 ──<br />新時代的人力資源管理策略"
+        },
+        {
+          session: "<span>總論壇</span>",
+          name: "陳焜耀",
+          photo: require("@/assets/img/speaker-12.jpg"),
+          title: "合隆毛廠總裁",
+          subject: "專題演講一",
+          hashtag: "#跨世代的人才需求 ──<br />HR如何選賢與能，助力接班布局 "
         },
         {
           session: "<span>總論壇</span>",
@@ -521,7 +545,7 @@ export default {
           photo: require("@/assets/img/speaker-8.jpg"),
           title: "友嘉集團 董事",
           subject: "專題演講二",
-          hashtag: "#二代接班新布局<br />──繼承者所需要的新世代HR"
+          hashtag: "#二代接班新布局 ──<br />繼承者所需要的新世代HR"
         },
         {
           session: "<span>總論壇</span>",
@@ -529,7 +553,7 @@ export default {
           photo: require("@/assets/img/speaker-9.jpg"),
           title: "遠見雜誌副總編輯",
           subject: "綜合座談暨交流Q&A",
-          hashtag: "#老手拉新手<br />──打造跨世代不老企業"
+          hashtag: "#老手拉新手 ──<br />打造跨世代不老企業"
         },
         {
           session: "<span>彰化場</span>",
@@ -537,7 +561,7 @@ export default {
           photo: require("@/assets/img/speaker-5.jpg"),
           title: "光隆實業 董事長",
           subject: "專題演講一",
-          hashtag: "＃跟對老闆不如幫對老闆<br />── 二代接班的HR角色怎麼演?"
+          hashtag: "＃跟對老闆不如幫對老闆 ──<br />二代接班的HR角色怎麼演?"
         },
         {
           session: "<span>彰化場</span>",
@@ -545,7 +569,7 @@ export default {
           photo: require("@/assets/img/speaker-4.jpg"),
           title: "逢甲大學人言講座教授",
           subject: "專題演講二",
-          hashtag: "#老將or新兵?用對的都是好兵!<br />── HR的跨世代用人哲學"
+          hashtag: "#老將or新兵?用對的都是好兵! ──<br />HR的跨世代用人哲學"
         },
         {
           session: "<span>彰化場</span>",
