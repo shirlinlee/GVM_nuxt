@@ -353,67 +353,67 @@
             <h3 class="f30">立即報名</h3>
             <h2 class="f66">&nbsp;&nbsp;FORM&nbsp;&nbsp;</h2>
           </div>
-          <form @submit="onSubmit" method="post" class="f18">
-            <div class="tr t_right f_red">*為必填項目</div>
+          <form @submit="onSubmit" method="post" :class="{'f18': true, 'disable':stopSignUp }">
+              <div class="tr t_right f_red">{{ attentionText }}</div>
 
-            <div class="tr">
-              <p>姓名</p>
-              <input
-                type="text"
-                name="name"
-                maxlength="20"
-                v-model="formObj.name"
-                required="required"
-              />
-            </div>
-            <div class="tr">
-              <p>手機</p>
-              <input
-                type="tel"
-                name="phone"
-                maxlength="10"
-                v-model="formObj.phone"
-                placeholder="0912345678"
-                required="required"
-              />
-            </div>
-            <div class="tr">
-              <p>e-mail</p>
-              <input type="email" name="email" v-model="formObj.email" required="required" />
-            </div>
-            <div class="tr">
-              <p>場次</p>
-              <select name id="event" v-model="formObj.session" required="required">
-                <option disabled value>請選擇場次</option>
-                <option value="總論壇(葷)">總論壇 - 供餐(葷食)</option>
-                <option value="總論壇(素)">總論壇 - 供餐(素食)</option>
+              <div class="tr">
+                <p>姓名</p>
+                <input
+                  type="text"
+                  name="name"
+                  maxlength="20"
+                  v-model="formObj.name"
+                  required="required"
+                />
+              </div>
+              <div class="tr">
+                <p>手機</p>
+                <input
+                  type="tel"
+                  name="phone"
+                  maxlength="10"
+                  v-model="formObj.phone"
+                  placeholder="0912345678"
+                  required="required"
+                />
+              </div>
+              <div class="tr">
+                <p>e-mail</p>
+                <input type="email" name="email" v-model="formObj.email" required="required" />
+              </div>
+              <div class="tr">
+                <p>場次</p>
+                <select name id="event" v-model="formObj.session" required="required">
+                  <option disabled value>請選擇場次</option>
+                  <option value="總論壇(葷)">總論壇 - 供餐(葷食)</option>
+                  <option value="總論壇(素)">總論壇 - 供餐(素食)</option>
 
-                <!-- //FIXME: 可選彰化場 -->
-                <!-- <option value="彰化場">彰化場</option> -->
-              </select>
-              <i class="arrow"></i>
-            </div>
-            <div class="tr">
-              <p>所屬單位</p>
-              <input type="text" name="dept" v-model="formObj.dept" required="required" />
-            </div>
-            <div class="tr">
-              <p>職稱</p>
-              <input type="text" name="job" v-model="formObj.job" required="required" />
-            </div>
-            <div class="tr">
-              <p class="optional">身分證字號</p>
-              <input type="text" name="rocid" v-model="formObj.rocid" />
-              <font class="f15 f_grey">(須申請公務人員學習時數者提供)</font>
-            </div>
-            <div class="tr t_left">
-              <input type="checkbox" name id="agreement" v-model="agreement" required="required" />
-              <label for="agreement">
-                我同意並授權「勞動部勞動力發展署」、「遠見雜誌」
-                <a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>
-              </label>
-            </div>
-            <button class="f18 submit" type="submit" :class="{'disable': submitClicked }">送出</button>
+                  <!-- //FIXME: 可選彰化場 -->
+                  <!-- <option value="彰化場">彰化場</option> -->
+                </select>
+                <i class="arrow"></i>
+              </div>
+              <div class="tr">
+                <p>所屬單位</p>
+                <input type="text" name="dept" v-model="formObj.dept" required="required" />
+              </div>
+              <div class="tr">
+                <p>職稱</p>
+                <input type="text" name="job" v-model="formObj.job" required="required" />
+              </div>
+              <div class="tr">
+                <p class="optional">身分證字號</p>
+                <input type="text" name="rocid" v-model="formObj.rocid" />
+                <font class="f15 f_grey">(須申請公務人員學習時數者提供)</font>
+              </div>
+              <div class="tr t_left">
+                <input type="checkbox" name id="agreement" v-model="agreement" required="required" />
+                <label for="agreement">
+                  我同意並授權「勞動部勞動力發展署」、「遠見雜誌」
+                  <a href="https://www.gvm.com.tw/about.html" target="_blank">個資告知事項</a>
+                </label>
+              </div>
+              <button class="f18 submit" type="submit" :class="{'disable': submitClicked || stopSignUp }">送出</button>
           </form>
         </div>
       </div>
@@ -505,6 +505,7 @@ export default {
       agreement: false,
       isPopupOpen: false,
       popupMsg: "",
+      stopSignUp: false,
       allSpeakers: [
         //FIXME: 可選彰化場
         {
@@ -618,6 +619,9 @@ export default {
     validateId() {
       var idRegex = /^[a-z](1|2)\d{8}$/i;
       return this.formObj.rocid.match(idRegex) ? true : false;
+    },
+    attentionText () {
+      return this.stopSignUp ? '*報名已額滿': '*為必填項目'
     }
   },
   components: {
@@ -634,6 +638,24 @@ export default {
         offset: 0
       }).init();
     }
+    // 35.185.161.185/api/getSessions.php
+    axios
+        .create({
+          baseURL: process.env.baseUrl
+        })
+        .get("/api/getSessions.php")
+        .then(response => {
+          const { data, status } = response;
+          if(status === 200 && data.data[0].status ===1 ) {
+            this.isPopupOpen = true;
+            this.popupMsg = '報名已額滿，謝謝您！';
+            this.stopSignUp = true;
+          }
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.response.status);
+        });
   },
   methods: {
     deviceDetect() {},
@@ -1408,6 +1430,18 @@ form {
     padding: 20px 20px 30px;
     margin-top: -50px;
   }
+  &.disable {
+    input , select, label, button {
+      opacity: .5;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
   a {
     color: #0042a0;
     border-bottom: 1px solid #0042a0;
@@ -1431,6 +1465,10 @@ form {
       -ms-user-select: none; /* IE 10+ */
       user-select: none; /* Standard syntax */
       opacity: 0.5;
+      &:hover {
+        letter-spacing: 0;
+        text-indent: 0;
+      }
     }
     @media (min-width: 769px) {
       &:hover {
