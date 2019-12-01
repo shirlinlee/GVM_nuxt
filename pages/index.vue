@@ -646,7 +646,7 @@ export default {
         .get("/api/getSessions.php")
         .then(response => {
           const { data, status } = response;
-          if(status === 200 && data.data[0].status ===1 ) {
+          if(status === 200 && data.data[0].status ===0 ) {
             this.isPopupOpen = true;
             this.popupMsg = '報名已額滿，謝謝您！';
             this.stopSignUp = true;
@@ -1440,6 +1440,9 @@ form {
       -ms-user-select: none;
       user-select: none;
       pointer-events: none;
+    }
+    .arrow {
+      border-color: #9d9d9d transparent transparent transparent;
     }
   }
   a {
