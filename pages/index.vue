@@ -646,7 +646,8 @@ export default {
         .get("/api/getSessions.php")
         .then(response => {
           const { data, status } = response;
-          if(status === 200 && data.data[0].status ===0 ) {
+          if(status == 200 && ( data.data[0].status.toString() == '0' || data.data[1].status.toString() == '0' )) {
+            console.log(data.data[0].status.toString() , data.data[1].status.toString());
             this.isPopupOpen = true;
             this.popupMsg = '報名已額滿，謝謝您！';
             this.stopSignUp = true;
@@ -654,7 +655,7 @@ export default {
           console.log(response);
         })
         .catch(error => {
-          console.log(error.response.status);
+          console.log(error.response);
         });
   },
   methods: {
