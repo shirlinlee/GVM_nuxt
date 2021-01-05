@@ -12,7 +12,7 @@
     "generate:test": "cross-env NODE_ENV=test BASE_URL=http://35.185.161.185:9000 nuxt generate"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "jquery": "^3.4.1",
     "nuxt": "^2.0.0",
     "qs": "^6.7.0",
